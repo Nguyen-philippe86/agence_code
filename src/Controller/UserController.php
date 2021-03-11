@@ -10,9 +10,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class UserController extends AbstractController
 {
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     /**
      * @Route("/user/property", name="user_property")
      */
@@ -40,11 +48,14 @@ class UserController extends AbstractController
             $property->setCreatedAt(new \DateTime());
             $modif = null !== $property->getId();
 
+            $user = $this->security->getUser();
+            $property->setAuthor($user);
+
             $entityManager->persist($property);
             $entityManager->flush();
-            $this->addFlash('succes', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
+            $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
 
-            return $this->redirectToRoute('property'); //Redirige vers la page "property"
+            return $this->redirectToRoute('user_property'); //Redirige vers la page "property"
         }
 
         return $this->render('user/create.html.twig', [//Si y a création retourne l'affichage de création sur la page "create.html.twig"

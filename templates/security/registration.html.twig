@@ -27,6 +27,13 @@
                     </div>
                     {{form_errors(form.email)}}
 
+                    <div class="formTitle">
+                        {{form_label(form.phone, 'Numéros de téléphone')}}
+                    </div>
+                    <div class="formWidget">
+                        {{form_widget(form.phone, {'attr':{'placeholder': "Numéros de téléphone"}})}}
+                    </div>
+                    {{form_errors(form.password)}}
 
                     <div class="formTitle">
                         {{form_label(form.password, 'Mot de passe')}}

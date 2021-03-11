@@ -7,6 +7,7 @@ use App\Entity\Property;
 use App\Entity\Type;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class PropertyFixtures extends Fixture
 {
@@ -14,7 +15,7 @@ class PropertyFixtures extends Fixture
     {
         $category = new Category();
         $category->setTitle('Maison')
-        ;
+                ;
 
         $manager->persist($category);
 
@@ -23,16 +24,17 @@ class PropertyFixtures extends Fixture
                 ;
         $manager->persist($type);
 
-        for ($j = 1; $j <= 5; ++$j) {
+        $faker = Factory::create('fr_FR');
+        for ($i = 1; $i <= 12; ++$i) {
             $property = new Property();
 
-            $property->setTitle('Belle Villa de style architecture')
-                ->setDescription('Ut ab voluptas sed a nam. Sint autem inventore aut officia aut aut blanditiis. Ducimus eos odit amet et est ut eum.')
-                ->setSurface(62)
-                ->setRooms(3)
-                ->setPrice(332500)
-                ->setCity('Le Bouscat')
-                ->setAddress('9 avenue du Mal de Lattre de Tassigny')
+            $property->setTitle($faker->words(3, true))
+                ->setDescription($faker->sentences(3, true))
+                ->setSurface($faker->numberBetween(15, 250))
+                ->setRooms($faker->numberBetween(1, 9))
+                ->setPrice($faker->numberBetween(45000, 1500000))
+                ->setCity($faker->city)
+                ->setAddress($faker->address)
                 ->setPictures('fake.jpg')
                 ->setCreatedAt(new \DateTime())
                 ->setUpdatedAt(new \DateTime())

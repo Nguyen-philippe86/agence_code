@@ -47,3 +47,17 @@ composer require vich/uploader-bundle -> Télécharger Bundles pour upload des f
 *Commentaire dans un fichier Twig {#azeaze#}
 
 * Lorsque le projet est fini, modifier la ligne APP_ENV=dev -> "APP_ENV=prod" (pour cacher les erreurs en ligne)
+
+-----------------------------------------------------------------------------------------------------
+
+EasyAdmin = Interface administrative
+
+composer require admin -> télécharger le bundle
+	*Créer un dossier Admin dans src/Controller/Admin
+symfony console make:admin:dashboard -> Créer le controller Dashboard
+	*Cela génère un controller Dashboard dans le dossier src/Controller/Admin
+symfony console make:admin:crud
+	*faire un admin:crud pour toute les entité de la BDD
+*Gérer la vue du Dashboard dans le controller :
+
+yield MenuItem::linkToCrud('Annonces', 'fas fa-home', Property::class); -> affiche sur le menu

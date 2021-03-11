@@ -4,7 +4,11 @@
 
 {% block body %}
 
-    <h1 class="titre">{% block titre %}Bonjour {#{{properties.user.username}}#}{% endblock %}</h1>
+    <h1 class="titre">{% block titre %}Bonjour {{app.user.username}}{% endblock %}</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="">{{ message }}</div>
+    {% endfor %}
 
     <section>
 

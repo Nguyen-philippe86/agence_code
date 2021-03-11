@@ -4,11 +4,14 @@
         <div class="openMenu"><i class="fa fa-bars"></i></div>
         <ul class="mainMenu">
             <li><a href="{{ path ('property') }}">Annonces</a></li>
+
+
         {% if not app.user %}
             <li><a href="{{ path ('security_registration') }}">Inscription</a></li>
             <li><a href="{{ path ('security_login') }}">Connexion</a></li>
         {% else %}
-            <li><a href="{{ path ('user_property') }}">Admin</a></li>
+            <li><a href="{{ path ('user_property') }}">Mon compte</a></li>
+            <li><a href="{{ path ('admin') }}">Interface admin</a></li>
             <li><a href="{{ path ('security_logout') }}">Deconnexion</a></li>
         {% endif %}
             <div class="closeMenu"><i class="fa fa-times"></i></div>

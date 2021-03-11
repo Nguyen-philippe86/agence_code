@@ -5,9 +5,13 @@
 {% block body %}
     <h1 class="titre">{% block titre %}Se connecter{% endblock %}</h1>
 
+    {% if error %}
+        <p>Les informations sont incorrectes</p>
+    {% endif %}
+
     <form action="{{ path('security_login') }}" method="POST">
         <div class="">
-            <label>Login :</label>
+            <label>E-mail :</label>
             <input type="text" placeholder="Adresse email" require name="_username">
         </div>
         <div class="">
