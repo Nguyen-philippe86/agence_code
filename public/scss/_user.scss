@@ -1,0 +1,52 @@
+.create{
+    margin-left: 75px;
+    display: inline;
+    padding: 5px 10px;
+    border-radius: 40px;
+    background-color: $redlight;
+    color: white;
+    font-size: 30px;
+    &:hover{
+        background-color: white;
+        color: $redlight;
+        transition: all 0.5s ease-in-out;
+    }
+}
+.actionUser{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    .show{
+        padding: 10px 34px;
+        background-color: $darkblue;
+        > a{
+            text-decoration: none;
+            color: white;
+        }
+        &:hover{
+            background-color: $redlight;
+            cursor: pointer;
+        }
+    }
+    .edit{
+        padding: 10px 34px;
+        background-color: $darkblue;
+        > a{
+            color: white;
+        }
+        &:hover{
+            background-color: $redlight;
+            cursor: pointer;
+        }
+    }
+    .btn-delete{
+        padding: 10px 34px;
+        background-color: $darkblue;
+        color: white;
+        cursor: pointer;
+        &:hover{
+            background-color: $redlight;
+            cursor: pointer;
+        }
+    }
+}

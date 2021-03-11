@@ -1,0 +1,48 @@
+.containerCreate{
+    width: 75vw;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    display:flex;
+    form{
+        width: 75%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px 0;
+        .formCreate{
+//            margin: 20 0px;
+            .formTitle{
+                color: $darkblue;
+                width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 25px;
+            }
+            .formWidget{
+                width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 15px;
+                input{
+                    width: 100%;
+                    height: 35px;
+                    border: 1px solid #222f3e;
+                    border-radius: 5px;
+                    &:focus{
+                        background-color: #222e3e0e;
+                    }
+                }
+            }
+        }
+        .btn-create{
+            padding: 10px 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $redlight;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

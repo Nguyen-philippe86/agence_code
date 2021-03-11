@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les biens{% endblock %}
+
+{% block body %}
+
+    <h1 class="titre">{% block titre %}Bonjour {#{{properties.user.username}}#}{% endblock %}</h1>
+
+    <section>
+
+    <a href="{{ path ('user_create') }}" class="create"><i class="fa fa-plus"></i></a>
+
+    <article class="containerCard">
+        {% for properties in property %}
+            
+            <div class="card">
+
+                <img src="{{ asset('img/' ~ properties.pictures )}}">
+                <h2>{{ properties.title }}</h2>
+                <ul>
+                    <li>Prix : {{ properties.price }}€</li>
+                    <li>Ville : {{ properties.city }}</li>
+                </ul>
+                <p class="metadata">Posté le {{ properties.createdAt | date('d/m/Y') }} à {{ properties.createdAt | date('H:i')}}</p>
+                <div class="actionUser">
+                    <div class="show"><a href="{{ path('property_show', {'id': properties.id}) }}"><i class="fa fa-eye"></i></a></div>
+                    <div class="edit"><a href="{{path('user_edit',{'id' : properties.id})}}"><i class="fas fa-pen"></i></a></div>
+                    <form method="POST" action="{{path('user_delete',{'id' : properties.id})}}" class="delete">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ properties.id)}}">
+                        <input type="submit" class="btn-delete" value="Supprimer">
+                    </form> 
+                </div>
+            </div>
+            
+
+        {% endfor %}      
+        </article>
+
+    </section>
+
+{% endblock %}

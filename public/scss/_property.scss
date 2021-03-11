@@ -1,0 +1,43 @@
+section{
+    width: 100%;
+    .containerCard{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 15px 5%;
+        .card{
+            width: 350px;
+            height: 500px;
+            margin-left: 15px;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            font-family: 'roboto';
+            position: relative;
+            img{
+                width: 100%;
+            }
+            h2{
+                padding: 15px 0;
+            }
+            ul{
+                list-style-type: none;
+                padding: 10px 0;
+            }
+            .showProperty > a{
+                padding: 10px 15px;
+                background-color: $darkblue;
+                color: white;
+                text-decoration: none;
+                position: absolute;
+                bottom: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+                &:hover{
+                    background-color: $redlight;
+                }
+            }
+        }
+    }
+}

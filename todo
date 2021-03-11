@@ -1,0 +1,14 @@
+1 - Créer le controller (@Route) qui gère la home page -> php bin/console make: controller
+2 - Créer la nav bar -> stylisé la nav bar
+3 - Créer la BDD -> php bin/console doctrine:database:create
+4 - Créer les entités (les tables ainsi que ses champs) -> php bin/console make:entité 
+    -> génère une page entité des infos de la tables avec ses champs
+5 - Créer le fichier de migration -> php bin/console make:migration 
+6 - Migré les infos de la table qu'on souhaite créée dans la BDD -> php bin/console doctrine:migration:migrate
+7 - Télécharger l'ORM fixtures -> composer require orm-fixtures --dev
+8 - Créer un fichier de fixtures pour l'entité correspondante -> php bin/console make:fixtures NomFixtures
+    -> génère un fichier fixtures qu'on a renseigner pour injecter des fausses données dans la BDD
+9 - Injecter les fausses données dans la BDD -> php bin/console doctrine:fixtures:loader
+10 - Afficher les données de la BDD avec les fonctions du Controller -> rendu visible sur une page twig
+11 - Création d'un formulaire pour editer / supprimer une annonces 
+12 - Création de la partie user, sécurité de connexion, seul les membres qui se sont inscrit peuvent acceder a la modification ou suppression des annonces

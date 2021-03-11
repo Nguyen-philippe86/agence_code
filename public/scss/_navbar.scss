@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 75px;
+    nav{
+        background-color: white;
+        font-family: 'roboto', arial, helvetica;
+        color: #ff5252;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed; // Navbar fixe
+        top: 0; // Navbar fixe
+        width: 100%; // Navbar fixe
+            .logo{
+                font-family: police-logo;
+                margin: 6px 6px 6px 15px;
+                font-size: 24px;
+                color: black;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: -2px;
+                word-spacing: 5px;        
+                text-decoration: none;
+            }
+            .openMenu{
+                font-size: 2rem;
+                margin: 20px;
+                display: none;
+                cursor: pointer;
+            }
+            .mainMenu{
+                display: flex;
+                align-items: flex-end;
+                list-style: none;
+                li > a{
+                    display: inline-block;
+                    padding: 50px 15px 10px 15px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: rgb(0, 0, 0);
+                    font-size: 15px;
+                    font-weight: bold;
+                    &:hover{
+                        background:#ff5252;
+                        transform: scale(1.15);
+                        transition: all 0.35s ease-in-out;
+                        z-index: 1;
+                    }
+                }
+            }
+            .mainMenu .closeMenu , .icons i{
+                font-size: 2rem;
+                display: none;
+                cursor: pointer;
+            }
+        }
+        @media (max-width: 768px){
+            nav .mainMenu{
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 10;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff;
+                transition: top 1s ease-in-out;
+                display: none;
+            }
+            nav .mainMenu .closeMenu{
+                    display: block;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+            nav .openMenu{
+                display: block;
+            }
+            nav .mainMenu li a:hover{
+                background: none;
+                color: #ff5252;
+                font-size: 1,5rem;
+            }
+        }
+    }

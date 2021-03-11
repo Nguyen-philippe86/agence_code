@@ -1,0 +1,51 @@
+.back{
+    margin-left: 75px;
+    display: inline;
+    padding: 5px 10px;
+    border-radius: 40px;
+    background-color: $redlight;
+    color: white;
+    font-size: 30px;
+    &:hover{
+        background-color: white;
+        color: $redlight;
+        transition: all 0.5s ease-in-out;
+    }
+}
+.containerShow{
+    width: 75vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    padding: 15px;
+    color: $darkblue;
+    background-color: white;
+    .containerPicture{
+        width: 100%;
+        .pictureShow{
+            width: 100%;
+        }
+    }
+    .contentShow {
+        width: 100%;
+        .cardShow{
+        padding-left: 30px;
+            h2{
+                padding: 15px 0;
+                color: $redlight;
+            }
+            ul{
+                list-style-type: none;
+                padding-bottom: 15px;
+            }
+            p{
+                padding: 5px 0;
+            }
+        }
+    }
+}
+@media (min-width: 500px) and (max-width:1080px){
+    .containerShow{
+        margin-top: 50px;
+    }
+}

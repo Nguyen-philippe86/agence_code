@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les biens{% endblock %}
+
+{% block body %}
+    
+    <h1 class="titre">{% block titre %}Explorer les annonces{% endblock %}</h1>
+
+    <section>
+        <article class="containerCard">
+
+        {% for properties in property %}
+
+            <div class="card">
+                <img src="{{ asset('img/' ~ properties.pictures )}}">
+                <h2>{{ properties.title }}</h2>
+                <ul>
+                    <li>Prix : {{ properties.price }}€</li>
+                    <li>Ville : {{ properties.city }}</li>
+                    <li>Catégorie : {{ properties.category.title }}</li>
+                    <li>Type : {{ properties.type.title }}</li>
+                </ul>
+                <p class="metadata">Posté le {{ properties.createdAt | date('d/m/Y') }} à {{ properties.createdAt | date('H:i')}}</p>
+                <div class="showProperty"><a href="{{ path('property_show', {'id': properties.id}) }}">Voir l'annonces</a></div>
+            </div>
+
+        {% endfor %}
+        
+        </article>
+
+    </section>
+
+{% endblock %}

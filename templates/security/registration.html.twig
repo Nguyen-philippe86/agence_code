@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="titre">{% block titre %}Inscription{% endblock %}</h1>
+
+    <div class="containerCreate">
+        {{ form_start(form) }}
+
+
+                <div class="formCreate">
+                    <div class="formTitle">
+                        {{form_label(form.username, 'Nom d\'utilisateur')}}
+                    </div>
+                    <div class="formWidget">
+                        {{form_widget(form.username, {'attr':{'placeholder': "Nom d\'utilisateur"}})}}
+                    </div>
+                    {{form_errors(form.username)}}
+
+                    <div class="formTitle">
+                        {{form_label(form.email, 'Adresse e-mail')}}
+                    </div>
+                    <div class="formWidget">
+                        {{form_widget(form.email, {'attr':{'placeholder': "E-mail"}})}}
+                    </div>
+                    {{form_errors(form.email)}}
+
+
+                    <div class="formTitle">
+                        {{form_label(form.password, 'Mot de passe')}}
+                    </div>
+                    <div class="formWidget">
+                        {{form_widget(form.password, {'attr':{'placeholder': "Mot de passe"}})}}
+                    </div>
+                    {{form_errors(form.password)}}
+
+                    <div class="formTitle">
+                        {{form_label(form.confirmPassword, 'Confirmez votre mot de passe')}}
+                    </div>
+                    <div class="formWidget">
+                        {{form_widget(form.confirmPassword, {'attr':{'placeholder': "Confirmez votre mot de passe"}})}}
+                    </div>
+                    {{form_errors(form.confirmPassword)}}
+                
+                <input type="submit" class="btn-create" value="Enregistrer"/>
+
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}

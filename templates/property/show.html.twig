@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les biens{% endblock %}
+
+{% block body %}
+    
+    <h1 class="titre">{% block titre %}Détail de l'annonce{% endblock %}</h1>
+
+    <section>
+
+    <a href="{{ path ('property') }}" class="back"><i class="fas fa-arrow-left"></i></a>
+
+        <article class="containerShow">
+            <div class="containerPicture">
+                <img src="{{ asset('img/' ~ property.pictures )}}" class="pictureShow">
+            </div>
+            <div class="contentShow">
+                <div class="cardShow">
+                    <h2>{{ property.title }}</h2>
+                    <ul>
+                        <li>Nombre de pièce(s) : {{ property.rooms }}</li>
+                        <li>Surface : {{ property.surface }}</li>
+                        <li>Ville : {{ property.city }}</li>
+                        <li>Adresse : {{ property.address }}</li>
+                    </ul>
+                    <h2>Prix : {{ property.price }} €</h2>
+                    <ul>
+                        <li>Catégorie : {{ property.category.title }}</li>
+                        <li>Type : {{ property.type.title }}</li>
+                    </ul>
+                    <p>Posté le {{ property.createdAt | date('d/m/Y') }} à {{ property.createdAt | date('H:i')}} <!--par USER--></p>
+                    <p>Description : {{ property.description }} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus quo ab distinctio quia, illum labore nisi nihil eum possimus laboriosam maiores facere laborum blanditiis quaerat voluptatibus praesentium molestias officiis! Possimus harum dicta tempora suscipit consequatur excepturi blanditiis accusamus obcaecati alias hic laudantium voluptatibus debitis eaque a deleniti sit, fugit ipsa.</p>
+                </div>
+            </div>
+        </article>
+        
+    </section>
+
+{% endblock %}

@@ -1,7 +1,14 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders: # active l'encodeur pour mdp
+        App\Entity\User:
+            algorithm: auto # défini une algorythme automatique
     providers:
         users_in_memory: { memory: null }
+        in_database: 
+            entity:
+                class: App\Entity\User # Chemin de la class
+                property: username # Lien de comparaison
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
