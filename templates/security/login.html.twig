@@ -3,7 +3,18 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-        <h1 class="titre">{% block titre %}Se connecter{% endblock %}</h1>
+    <h1 class="titre">{% block titre %}Se connecter{% endblock %}</h1>
 
+    <form action="{{ path('security_login') }}" method="POST">
+        <div class="">
+            <label>Login :</label>
+            <input type="text" placeholder="Adresse email" require name="_username">
+        </div>
+        <div class="">
+            <label>Password :</label>
+            <input type="password" placeholder="Mot de passe" require name="_password">
+        </div>
+        <input type="submit" class="btn-login" value="S'identifier">
+    </form>
 
 {% endblock %}
