@@ -5,16 +5,20 @@
         <ul class="mainMenu">
             <li><a href="{{ path ('property') }}">Annonces</a></li>
 
-
         {% if not app.user %}
             <li><a href="{{ path ('security_registration') }}">Inscription</a></li>
             <li><a href="{{ path ('security_login') }}">Connexion</a></li>
         {% else %}
             <li><a href="{{ path ('user_property') }}">Mon compte</a></li>
+        {% if is_granted('ROLE_ADMIN')%}
             <li><a href="{{ path ('admin') }}">Interface admin</a></li>
+        {% endif %}
             <li><a href="{{ path ('security_logout') }}">Deconnexion</a></li>
         {% endif %}
+        
             <div class="closeMenu"><i class="fa fa-times"></i></div>
         </ul>
     </nav>
 </header>
+
+

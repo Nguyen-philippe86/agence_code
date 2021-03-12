@@ -12,12 +12,13 @@
         {% for properties in property %}
 
             <div class="card">
+            
                 <img src="{{ asset('img/' ~ properties.pictures )}}">
-                <h2>{{ properties.title }}</h2>
+                <div class="titleCard">{{ properties.title }}</div>
                 <ul>
+                    <li>{{ properties.category.title }}</li>
                     <li>Prix : {{ properties.price }}€</li>
                     <li>Ville : {{ properties.city }}</li>
-                    <li>Catégorie : {{ properties.category.title }}</li>
                     <li>Type : {{ properties.type.title }}</li>
                 </ul>
                 <p class="metadata">Posté le {{ properties.createdAt | date('d/m/Y') }} à {{ properties.createdAt | date('H:i')}}</p>

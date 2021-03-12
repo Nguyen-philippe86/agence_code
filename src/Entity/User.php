@@ -57,9 +57,19 @@ class User implements UserInterface
      */
     private $properties;
 
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $roles = [];
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->username;
     }
 
     public function getId(): ?int
@@ -137,7 +147,10 @@ class User implements UserInterface
 
     public function getRoles() // Paramètre liés a "implements UserInterface"
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     /**
@@ -166,6 +179,13 @@ class User implements UserInterface
                 $property->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function setRoles(?array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }

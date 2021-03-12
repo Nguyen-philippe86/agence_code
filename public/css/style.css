@@ -118,7 +118,7 @@ section .containerCard {
 }
 section .containerCard .card {
   width: 350px;
-  height: 500px;
+  height: 550px;
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 40px;
@@ -129,9 +129,12 @@ section .containerCard .card {
 }
 section .containerCard .card img {
   width: 100%;
+  height: 250px;
 }
-section .containerCard .card h2 {
-  padding: 15px 0;
+section .containerCard .card .titleCard {
+  padding: 10px 0;
+  font-weight: bold;
+  color: #ff5252;
 }
 section .containerCard .card ul {
   list-style-type: none;
@@ -293,6 +296,12 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerCreate form .formCreate .formWidget input:focus {
   background-color: #222e3e0e;
+}
+.containerCreate form .formCreate .formWidget textarea {
+  width: 100%;
+  height: 75px;
+  resize: none;
+  border-radius: 5px;
 }
 .containerCreate form .btn-create {
   padding: 10px 50px;
