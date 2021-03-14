@@ -1,10 +1,31 @@
 body{
-    background-color: $darkblue;
+    background-color: white;
     background-size: cover;
     font-family: 'roboto';
-    h1{
-        margin: 50px 75px;
-        text-transform: uppercase; 
-        color: white;
+    .titre{
+        font-size: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 60px 0 45px;
+        color: $darkblue;
+        text-transform: uppercase;
+        text-align: center;
+        &::before, &::after{
+            content: "";
+            height: 2px;
+            border-radius: 5px;
+            width: 20%;
+        }
+        &::before{
+            margin-right: 10px;
+            margin-left: 2%;
+            background: linear-gradient(to right, transparent, $darkblue);
+        }
+        &::after{
+            margin-right: 5px;
+            margin-left: 2%;
+            background: linear-gradient(to left, transparent, $darkblue);
+        }
     }
 }

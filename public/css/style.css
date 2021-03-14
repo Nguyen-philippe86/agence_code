@@ -11,9 +11,10 @@
 header {
   width: 100%;
   height: 75px;
+  display: flex;
+  background-color: #1e272e;
 }
 header nav {
-  background-color: white;
   font-family: "roboto", arial, helvetica;
   color: #ff5252;
   display: flex;
@@ -22,27 +23,18 @@ header nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 }
 header nav .logo {
-  font-family: police-logo;
-  margin: 6px 6px 6px 15px;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
+  margin: 6px;
+  font-size: 25px;
   text-transform: uppercase;
-  letter-spacing: -2px;
-  word-spacing: 5px;
-  text-decoration: none;
-}
-header nav .openMenu {
-  font-size: 2rem;
-  margin: 20px;
-  display: none;
-  cursor: pointer;
+  color: white;
+  letter-spacing: -3px;
+  word-spacing: 10px;
 }
 header nav .mainMenu {
   display: flex;
-  align-items: flex-end;
   list-style: none;
 }
 header nav .mainMenu li > a {
@@ -50,7 +42,7 @@ header nav .mainMenu li > a {
   padding: 50px 15px 10px 15px;
   text-decoration: none;
   text-transform: uppercase;
-  color: black;
+  color: white;
   font-size: 15px;
   font-weight: bold;
 }
@@ -60,12 +52,21 @@ header nav .mainMenu li > a:hover {
   transition: all 0.35s ease-in-out;
   z-index: 1;
 }
-header nav .mainMenu .closeMenu, header nav .icons i {
+header nav .openMenu {
+  font-size: 2rem;
+  margin: 20px;
+  display: none;
+  cursor: pointer;
+}
+header nav .mainMenu .closeMenu, header nav > i {
   font-size: 2rem;
   display: none;
   cursor: pointer;
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 500px) {
+  header .containerLogo > a > h2 {
+    font-size: 20px;
+  }
   header nav .mainMenu {
     height: 100vh;
     position: fixed;
@@ -79,6 +80,10 @@ header nav .mainMenu .closeMenu, header nav .icons i {
     background-color: #ffffff;
     transition: top 1s ease-in-out;
     display: none;
+  }
+  header nav .mainMenu li > a {
+    color: #1e272e;
+    font-size: 30px;
   }
   header nav .mainMenu .closeMenu {
     display: block;
@@ -95,16 +100,42 @@ header nav .mainMenu .closeMenu, header nav .icons i {
     font-size: 1, 5rem;
   }
 }
+@media screen and (max-width: 900px) and (min-width: 768px) {
+  header nav > .mainMenu > li > a {
+    font-size: 12px;
+  }
+}
 
 body {
-  background-color: #222f3e;
+  background-color: white;
   background-size: cover;
   font-family: "roboto";
 }
-body h1 {
-  margin: 50px 75px;
+body .titre {
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0 45px;
+  color: #1e272e;
   text-transform: uppercase;
-  color: white;
+  text-align: center;
+}
+body .titre::before, body .titre::after {
+  content: "";
+  height: 2px;
+  border-radius: 5px;
+  width: 20%;
+}
+body .titre::before {
+  margin-right: 10px;
+  margin-left: 2%;
+  background: linear-gradient(to right, transparent, #1e272e);
+}
+body .titre::after {
+  margin-right: 5px;
+  margin-left: 2%;
+  background: linear-gradient(to left, transparent, #1e272e);
 }
 
 section {
@@ -124,6 +155,7 @@ section .containerCard .card {
   margin-bottom: 40px;
   padding: 20px;
   background-color: white;
+  box-shadow: 1px 1px 10px grey;
   font-family: "roboto";
   position: relative;
 }
@@ -142,7 +174,7 @@ section .containerCard .card ul {
 }
 section .containerCard .card .showProperty > a {
   padding: 10px 15px;
-  background-color: #222f3e;
+  background-color: #1e272e;
   color: white;
   text-decoration: none;
   position: absolute;
@@ -175,8 +207,9 @@ section .containerCard .card .showProperty > a:hover {
   margin-right: auto;
   margin-bottom: 40px;
   padding: 15px;
-  color: #222f3e;
+  color: #1e272e;
   background-color: white;
+  box-shadow: 1px 1px 30px grey;
 }
 .containerShow .containerPicture {
   width: 100%;
@@ -207,29 +240,60 @@ section .containerCard .card .showProperty > a:hover {
     margin-top: 50px;
   }
 }
+.messageFlash {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: flex-start;
+  padding: 40px;
+  background: linear-gradient(to right, #D4EDD9, white);
+}
+
 .create {
-  margin-left: 75px;
-  display: inline;
-  padding: 5px 10px;
-  border-radius: 40px;
-  background-color: #ff5252;
-  color: white;
-  font-size: 30px;
+  position: relative;
+  color: #ff5252;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  font-size: 15px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 25px auto;
+  border: 2px solid #ff5252;
+  overflow: hidden;
+  transition: color 0.8s ease;
 }
 .create:hover {
-  background-color: white;
-  color: #ff5252;
-  transition: all 0.5s ease-in-out;
+  color: white;
+}
+.create:hover::before {
+  transform: translate(-50%, -50%) rotate(22deg) scaleY(5);
+}
+.create::before {
+  background-color: #ff5252;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.8s ease;
+  width: 120%;
+  height: 100%;
+  transform: translate(-50%, -50%) rotate(22deg) scaleY(0);
 }
 
 .actionUser {
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  margin: 40px 0px 0px 0px;
 }
 .actionUser .show {
   padding: 10px 34px;
-  background-color: #222f3e;
+  background-color: #1e272e;
 }
 .actionUser .show > a {
   text-decoration: none;
@@ -241,7 +305,7 @@ section .containerCard .card .showProperty > a:hover {
 }
 .actionUser .edit {
   padding: 10px 34px;
-  background-color: #222f3e;
+  background-color: #1e272e;
 }
 .actionUser .edit > a {
   color: white;
@@ -251,13 +315,14 @@ section .containerCard .card .showProperty > a:hover {
   cursor: pointer;
 }
 .actionUser .btn-delete {
-  padding: 10px 34px;
-  background-color: #222f3e;
+  padding: 12px 34px;
+  background-color: #ff5252;
   color: white;
+  border: none;
   cursor: pointer;
 }
 .actionUser .btn-delete:hover {
-  background-color: #ff5252;
+  background-color: #1e272e;
   cursor: pointer;
 }
 
@@ -266,17 +331,21 @@ section .containerCard .card .showProperty > a:hover {
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
+  padding-top: 50px;
   background-color: white;
   display: flex;
+  box-shadow: 1px 1px 25px grey;
 }
 .containerCreate form {
   width: 75%;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 100px;
   padding: 20px 0;
 }
 .containerCreate form .formCreate .formTitle {
-  color: #222f3e;
+  color: #1e272e;
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -287,6 +356,9 @@ section .containerCard .card .showProperty > a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
+}
+.containerCreate form .formCreate .formWidget .formErrors {
+  color: #ff5252;
 }
 .containerCreate form .formCreate .formWidget input {
   width: 100%;
@@ -303,14 +375,104 @@ section .containerCard .card .showProperty > a:hover {
   resize: none;
   border-radius: 5px;
 }
+.containerCreate form .formCreate .formWidget #property_description {
+  font-family: "roboto";
+}
+.containerCreate form .formCreate .formWidget #property_category {
+  width: 100%;
+  height: 35px;
+}
+.containerCreate form .formCreate .formWidget #property_type {
+  width: 100%;
+  height: 35px;
+}
+.containerCreate form .formCreate .formWidget #property_imageFile {
+  height: 23px;
+}
+.containerCreate form .formCreate .containerSelect {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.containerCreate form .formCreate .containerSelect .formTitle {
+  height: 30px;
+}
 .containerCreate form .btn-create {
+  margin-top: 20px;
   padding: 10px 50px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ff5252;
+  background-color: #1e272e;
+  border: none;
   color: white;
   cursor: pointer;
+}
+.containerCreate form .btn-create:hover {
+  background: #ff5252;
+}
+
+.containerLogin {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.containerLogin .formLogin {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 25px grey;
+  text-align: center;
+}
+.containerLogin .formLogin input[type=text], .containerLogin .formLogin input[type=password] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #1e272e;
+  padding: 15px 50px;
+  width: 350px;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.25s;
+}
+.containerLogin .formLogin input[type=text]:focus, .containerLogin .formLogin input[type=password]:focus {
+  width: 400px;
+  border-color: #ff5252;
+}
+.containerLogin .formLogin input[type=submit] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #1e272e;
+  padding: 15px 40px;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.25s;
+  color: #1e272e;
+  cursor: pointer;
+}
+.containerLogin .formLogin input[type=submit]:hover {
+  background: #ff5252;
+  color: white;
+  border: 2px solid #ff5252;
+}
+
+.errorLogin {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -35px;
+  justify-content: flex-start;
+  padding: 40px;
+  background: linear-gradient(to right, #F8D7DA, white);
 }
 
 /*# sourceMappingURL=style.css.map */
