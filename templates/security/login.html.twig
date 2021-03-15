@@ -3,22 +3,18 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <h1 class="titre">{% block titre %}Se connecter{% endblock %}</h1>
+    <p class="titre">{% block titre %}Se connecter{% endblock %}</p>
 
     {% if error %}
-        <p>Les informations sont incorrectes</p>
+        <p class="errorLogin">Les informations sont incorrectes</p>
     {% endif %}
 
-    <form action="{{ path('security_login') }}" method="POST">
-        <div class="">
-            <label>E-mail :</label>
-            <input type="text" placeholder="Adresse email" require name="_username">
-        </div>
-        <div class="">
-            <label>Password :</label>
-            <input type="password" placeholder="Mot de passe" require name="_password">
-        </div>
-        <input type="submit" class="btn-login" value="S'identifier">
-    </form>
-
+    <div class="containerLogin">
+        <form class="formLogin" action="{{ path('security_login') }}" method="POST">
+                <input type="text" placeholder="Adresse email" require name="_username">
+                <input type="password" placeholder="Mot de passe" require name="_password">
+            <input type="submit" class="btn-login" value="S'identifier">
+        </form>
+    </div>
+    
 {% endblock %}

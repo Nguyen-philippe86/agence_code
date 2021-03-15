@@ -4,11 +4,11 @@
 
 {% block body %}
     
-    <h1 class="titre">{% block titre %}Détail de l'annonce{% endblock %}</h1>
+    <p class="titre">{% block titre %}Détail de l'annonce{% endblock %}</p>
 
     <section>
 
-    <a href="{{ path ('property') }}" class="back"><i class="fas fa-arrow-left"></i></a>
+<!--    <a href="{#{{ path ('property') }}#}" class="back"><i class="fas fa-arrow-left"></i></a> -->
 
         <article class="containerShow">
             <div class="containerPicture">
@@ -28,9 +28,19 @@
                         <li>Catégorie : {{ property.category.title }}</li>
                         <li>Type : {{ property.type.title }}</li>
                     </ul>
-                    <p>Posté le {{ property.createdAt | date('d/m/Y') }} à {{ property.createdAt | date('H:i')}} <!--par USER--></p>
+                    <p>Posté le {{ property.createdAt | date('d/m/Y') }} à {{ property.createdAt | date('H:i')}} par {{ property.author.username }}</p>
                     <p>Description : {{ property.description }}</p>
                 </div>
+
+                <div class="showContact">
+                    <ul>
+                        <li>{{property.author.firstname}} {{property.author.lastname}}</li>
+                        <li>{{property.author.email}}</li>
+                        <li>{{property.author.phone}}</li>
+                    </ul>
+                </div>
+                <button id="b2">Coordonnés du vendeur</button>
+
             </div>
         </article>
         

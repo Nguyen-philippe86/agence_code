@@ -4,18 +4,17 @@
 
 {% block body %}
 
-    <h1>
+    <p class="titre">
     {% block titre %}
         {% if isModification %}
-            Modification de {#{{properties.nom}}#}
+            Modification
         {% else %}
-            Ajout d'une annonce
+            Ajouter une annonce
         {% endif %}
-    {% endblock %}</h1>
+    {% endblock %}</p>
 
     <div class="containerCreate">
         {{ form_start(form) }}
-
 
                 <div class="formCreate">
                     <div class="formTitle">
@@ -23,79 +22,103 @@
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.title, {'attr':{'placeholder': "Titre de l'annonce"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.title)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.surface, 'Surface au m2')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.surface, {'attr':{'placeholder': "Surface"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.surface)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.rooms, 'Nombre de pièces')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.rooms, {'attr':{'placeholder': "Nombre de pièces"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.rooms)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.description, 'Description de l\'annonce')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.description, {'attr':{'placeholder': "Description de l\'annonce"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.description)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.price, 'Prix')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.price, {'attr':{'placeholder': "Prix"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.price)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.city, 'Ville')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.city, {'attr':{'placeholder': "Ville"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.city)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.address, 'Adresse')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.address, {'attr':{'placeholder': "Adresse"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.address)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
 
                     <div class="formTitle">
                         {{form_label(form.imageFile, 'Photo')}}
                     </div>
                     <div class="formWidget">
                         {{form_widget(form.imageFile, {'attr':{'placeholder': "Photo"}})}}
+                        <div class="formErrors">
+                            {{form_errors(form.imageFile)}}
+                        </div>
                     </div>
-                    {#{{form_error(form.title)}}#}
-                
-                    <div class="formTitle">
-                        {{form_label(form.category, 'Catégorie')}}
+
+                    <div class="containerSelect">
+
+                        <div class="formTitle">
+                            {{form_label(form.category, 'Catégorie')}}
+                        </div>
+                        <div class="formWidget">
+                            {{form_widget(form.category, {'attr':{'placeholder': "Catégorie"}})}}
+                            <div class="formErrors">    
+                                {{form_errors(form.category)}}
+                            </div>
+                        </div>
+
+                        <div class="formTitle">
+                            {{form_label(form.type, 'Type')}}
+                        </div>
+                        <div class="formWidget">
+                            {{form_widget(form.type, {'attr':{'placeholder': "Type"}})}}
+                            <div class="formErrors">
+                                {{form_errors(form.type)}}
+                            </div>
+                        </div>
                     </div>
-                    <div class="formWidget">
-                        {{form_widget(form.category, {'attr':{'placeholder': "Photo"}})}}
-                    </div>
-                    {#{{form_error(form.title)}}#}
-                    <div class="formTitle">
-                        {{form_label(form.type, 'Type')}}
-                    </div>
-                    <div class="formWidget">
-                        {{form_widget(form.type, {'attr':{'placeholder': "Type"}})}}
-                    </div>
-                    {#{{form_error(form.title)}}#}
                 </div>
                 
                 <input type="submit" class="btn-create" value="Enregistrer"/>

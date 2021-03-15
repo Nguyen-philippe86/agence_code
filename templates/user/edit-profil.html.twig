@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}Tous les biens{% endblock %}
 
 {% block body %}
 
-    <p class="titre">{% block titre %}Inscription{% endblock %}</p>
+    <p class="titre">{% block titre %}Modification du profil de {{app.user.firstname}}{% endblock %}</p>
 
     <div class="containerCreate">
         {{ form_start(form) }}
@@ -52,16 +52,6 @@
                     </div>
 
                     <div class="formTitle">
-                        {{form_label(form.email, 'Adresse e-mail')}}
-                    </div>
-                    <div class="formWidget">
-                        {{form_widget(form.email, {'attr':{'placeholder': "E-mail"}})}}
-                        <div class="formErrors">
-                            {{form_errors(form.email)}}
-                        </div>
-                    </div>
-
-                    <div class="formTitle">
                         {{form_label(form.username, 'Nom d\'utilisateur')}}
                     </div>
                     <div class="formWidget">
@@ -81,31 +71,11 @@
                         </div>
                     </div>
 
-                    <div class="formTitle">
-                        {{form_label(form.password, 'Mot de passe')}}
-                    </div>
-                    <div class="formWidget">
-                        {{form_widget(form.password, {'attr':{'placeholder': "Mot de passe"}})}}
-                        <div class="formErrors">
-                            {{form_errors(form.password)}}
-                        </div>
-                    </div>
-
-                    <div class="formTitle">
-                        {{form_label(form.confirmPassword, 'Confirmez votre mot de passe')}}
-                    </div>
-                    <div class="formWidget">
-                        {{form_widget(form.confirmPassword, {'attr':{'placeholder': "Confirmez votre mot de passe"}})}}
-                        <div class="formErrors">
-                            {{form_errors(form.confirmPassword)}}
-                        </div>
-                    </div>
-
                     <div class="containerRegistration">
                         <input type="submit" class="btn-create" value="Enregistrer"/>
                     </div>
         {{ form_end(form) }}
     </div>
 
-
 {% endblock %}
+

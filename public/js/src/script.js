@@ -13,15 +13,22 @@ function show(){
 function close(){
     mainMenu.style.top = '-100%';
 }
-
+// Contact cacher
+$(document).ready(function(){  
+    $("#b2").click(function(){
+        $(".showContact").show();
+    });
+});
 
 /* Menu Burger
 HTML:
-    <div id="clickme">Click here</div>
-    <img id="book" src="book.png" alt="" width="100" height="123">
+<div id="clickme">Click here</div>
+<img id="book" src="book.png" alt="" width="100" height="123">
 
 JQUERY:
-    $( "#clickme" ).click(function() {
+$( "#clickme" ).click(function() {
     $( "#book" ).slideToggle( "slow", function() {});
-    }); 
+}); 
 */
+
+

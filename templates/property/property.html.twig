@@ -4,7 +4,7 @@
 
 {% block body %}
     
-    <h1 class="titre">{% block titre %}Explorer les annonces{% endblock %}</h1>
+    <p class="titre">{% block titre %}Explorer les annonces{% endblock %}</p>
 
     <section>
         <article class="containerCard">
@@ -19,7 +19,7 @@
                     <li>{{ properties.category.title }}</li>
                     <li>Prix : {{ properties.price }}€</li>
                     <li>Ville : {{ properties.city }}</li>
-                    <li>Type : {{ properties.type.title }}</li>
+                    <li>{{ properties.category.title }} - {{ properties.type.title }}</li>
                 </ul>
                 <p class="metadata">Posté le {{ properties.createdAt | date('d/m/Y') }} à {{ properties.createdAt | date('H:i')}}</p>
                 <div class="showProperty"><a href="{{ path('property_show', {'id': properties.id}) }}">Voir l'annonces</a></div>

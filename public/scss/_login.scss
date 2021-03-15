@@ -6,7 +6,7 @@
         width: 500px;
         padding: 40px;
         position: absolute;
-        top: 55%;
+        top: 62%;
         left: 50%;
         background-color: white;
         transform: translate(-50%, -50%);
@@ -48,6 +48,11 @@
                 border: 2px solid $redlight;
             }
         }
+        @media screen and (max-width: 650px) and (min-width: 375px){
+            .containerLogin > .formLogin{
+                top: 5%;
+            }
+        }      
     }
 }
 .errorLogin{

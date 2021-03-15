@@ -27,7 +27,7 @@ class PropertyController extends AbstractController
      *
      * @param mixed $id
      */
-    public function show(Property $property): Response // PropertyRepository = Injection de dépendance
+    public function show(Property $property): Response // PropertyPropertyRepository = Injection de dépendance
     {
         return $this->render('property/show.html.twig', [
             'property' => $property,

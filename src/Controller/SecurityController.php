@@ -48,6 +48,8 @@ class SecurityController extends AbstractController
             'lastUsername' => $util->getLastUsername(), // On envoie les derniers infos de l'user
             'error' => $util->getLastAuthenticationError(), // On envoie l'erreur à la vue
         ]);
+
+        return $this->redirectToRoute('property');
     }
 
     /**

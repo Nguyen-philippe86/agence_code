@@ -51,6 +51,8 @@ composer require vich/uploader-bundle -> Télécharger Bundles pour upload des f
 -----------------------------------------------------------------------------------------------------
 
 EasyAdmin = Interface administrative
+['ROLE_ADMIN'] = admin@admin.com / admin2021
+['ROLE_USER'] = toto@toto.com / toto999
 
 composer require admin -> télécharger le bundle
 	*Créer un dossier Admin dans src/Controller/Admin
@@ -60,4 +62,8 @@ symfony console make:admin:crud
 	*faire un admin:crud pour toute les entité de la BDD
 *Gérer la vue du Dashboard dans le controller :
 
-yield MenuItem::linkToCrud('Annonces', 'fas fa-home', Property::class); -> affiche sur le menu
+*Cérer le role et l'hiérarchie de chacun dans sécurity.yaml
+
+*Convertir les clé fk de la table Property en string
+	-> dans Entity/Category & Type & User
+	-> rajouter une public function __toString pour convertir la conversion de l'ID en string

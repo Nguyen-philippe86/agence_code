@@ -4,44 +4,81 @@
 
 {% block body %}
 
-    <h1 class="titre">{% block titre %}Bonjour {{app.user.username}}{% endblock %}</h1>
+    <p class="titre">{% block titre %}Profil de {{app.user.firstname}}{% endblock %}</p>
 
     {% for message in app.flashes('success') %}
-        <div class="">{{ message }}</div>
+        <div class="messageFlash">{{ message }}</div>
     {% endfor %}
 
     <section>
 
-    <a href="{{ path ('user_create') }}" class="create"><i class="fa fa-plus"></i></a>
+        <a href="{{ path ('user_create') }}" class="create">Ajouter une annonce</a>
 
-    <article class="containerCard">
-        {% for properties in property %}
-            
-            <div class="card">
+        <div class="containerUser">
 
-                <img src="{{ asset('img/' ~ properties.pictures )}}">
-                <div class="titleCard">{{ properties.title }}</div>
-                <ul>
-                    <li>Prix : {{ properties.price }}€</li>
-                    <li>Ville : {{ properties.city }}</li>
-                    <li>Type : {{ properties.type.title }}</li>
-                </ul>
-                <p class="metadata">Posté le {{ properties.createdAt | date('d/m/Y') }} à {{ properties.createdAt | date('H:i')}}</p>
-                <div class="actionUser">
-                    <div class="show"><a href="{{ path('property_show', {'id': properties.id}) }}"><i class="fa fa-eye"></i></a></div>
-                    <div class="edit"><a href="{{path('user_edit',{'id' : properties.id})}}"><i class="fas fa-pen"></i></a></div>
-                    <form method="POST" action="{{path('user_delete',{'id' : properties.id})}}" class="delete">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ properties.id)}}">
-                        <input type="submit" class="btn-delete" value="Supprimer">
-                    </form> 
+            <article class="containerInfoProfil">
+                <h3>Coordonnées de {{app.user.username}}</h3>
+                    <div class="titleIdentity"> 
+                        <h4><i class="far fa-address-card"></i> Identité</h4>
+                    </div>
+                    <ul>
+                        <li>Prénom : {{ app.user.firstname }}</li>
+                        <hr>
+                        <li>Nom : {{ app.user.lastname }}</li>
+                    </ul>
+                    <div class="titleIdentity">
+                        <h4><i class="fas fa-map-marker-alt"></i> Adresse</h4>
+                    </div>
+                        <ul>
+                            <li>{{ app.user.address }}</li>
+                            <hr>
+                            <li>{{ app.user.country }}</li>
+                        </ul>
+                    <div class="titleIdentity">
+                        <h4><i class="fas fa-ellipsis-h"></i> Autres informations</h4>
+                    </div>
+                        <ul>
+                            <li>Nom d'utilisateur : {{app.user.username}}</li>
+                            <hr>
+                            <li>Email : {{app.user.email}}</li>
+                            <hr>
+                            <li>Téléphone <i class="fas fa-phone-alt"></i>:  {{app.user.phone}}</li>
+                        </ul>
+                <a href="{{ path ('user_profil_edit')}}" class"btn-profil">Modifier le profil</a>
+            </article>
+
+            <article class="containerCardUser">
+                <div class="contentTitle">    
+                    <h3>Annonces de {{ app.user.username }} ({{ app.user.properties | length }})</h3>
                 </div>
-            </div>
-            
+                {% for property in app.user.properties %}
+                <div class="cardUser">
+                    <img class="imgUser" src="{{ asset('img/' ~ property.pictures )}}">
+                    <div class="titleCardUser">{{ property.title }}</div>
+                    <ul>
+                        <li>Prix : {{ property.price }}€</li>
+                        <li>Ville : {{ property.city }}</li>
+                        <li>{{ property.category.title }} - {{ property.type.title }}</li>
+                    </ul>
+                    <p class="metadata">Posté le {{ property.createdAt | date('d/m/Y') }} à {{ property.createdAt | date('H:i')}}</p>
+                    <div class="actionUser" sttyle="justify-content:center">
+                        <div class="showUser"><a href="{{ path('property_show', {'id': property.id}) }}"><i class="fa fa-eye"></i></a></div>
+                        <div class="editUser"><a href="{{path('user_edit',{'id' : property.id})}}"><i class="fas fa-pen"></i></a></div>
+                        <form method="POST" action="{{path('user_delete',{'id' : property.id})}}" class="delete">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ property.id)}}">
+                            <input type="submit" class="btn-delete" value="Supprimer">
+                        </form> 
+                    </div>
+                </div>
+                {% endfor %}      
+            </article>
 
-        {% endfor %}      
-        </article>
+        </div>
 
     </section>
 
 {% endblock %}
+
+
+

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Property;
+use App\Form\EditProfileType;
 use App\Form\PropertyType;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,16 +22,24 @@ class UserController extends AbstractController
         $this->security = $security;
     }
 
+    // /**
+    //  * @Route("/user/property", name="user_property")
+    //  */
+    // public function index(PropertyRepository $repository): Response //PropertyRepository = $repository qui affiche tout du PropertyRepository
+    // {
+    //     $property = $repository->findAll();
+
+    //     return $this->render('user/user.html.twig', [ //retourne le résultat sur la page "user.html.twig"
+    //         'property' => $property,
+    //     ]);
+    // }
+
     /**
      * @Route("/user/property", name="user_property")
      */
-    public function index(PropertyRepository $repository): Response //PropertyRepository = $repository qui affiche tout du PropertyRepository
+    public function profil()
     {
-        $property = $repository->findAll();
-
-        return $this->render('user/user.html.twig', [ //retourne le résultat sur la page "user.html.twig"
-            'property' => $property,
-        ]);
+        return $this->render('user/user.html.twig');
     }
 
     /**
@@ -40,17 +49,15 @@ class UserController extends AbstractController
     public function createAndEdit(Property $property = null, Request $request, EntityManagerInterface $entityManager): Response // On passe en param REQUEST = la requête
     {
         if (!$property) {
-            $property = new Property();
+            $property = new Property(); // ajout d'un nouvel property
         }
         $form = $this->createForm(PropertyType::class, $property); //appelle du formulaire PopertyType, Si y a madification affiche le formulaire de l'id correspondant
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {//Si le formulaire est valide et soumis
             $property->setCreatedAt(new \DateTime());
             $modif = null !== $property->getId();
-
             $user = $this->security->getUser();
             $property->setAuthor($user);
-
             $entityManager->persist($property);
             $entityManager->flush();
             $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
@@ -62,6 +69,28 @@ class UserController extends AbstractController
             'property' => $property,
             'form' => $form->createView(),
             'isModification' => null !== $property->getid(),
+        ]);
+    }
+
+    /**
+     * @Route("/user/profil/edit", name="user_profil_edit")
+     */
+    public function editProfile(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->security->getUser(); // on récupère l'user dans l'entity et on le stock dans la variable $user
+        $form = $this->createForm(EditProfileType::class, $user); // on crée le formulaire a partir du type EditProfileType::class
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'Profil mis à jour');
+
+            return $this->redirectToRoute('user_property');
+        }
+
+        return $this->render('user/edit-profil.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
