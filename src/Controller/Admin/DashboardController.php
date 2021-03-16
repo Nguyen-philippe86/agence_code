@@ -39,7 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégorie', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Type', 'fas fa-tags', Type::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
-        yield MenuItem::linkToroute('Retour au site', 'fas fa-home', 'user_property');
+        yield MenuItem::linkToroute('Retour au site', 'fas fa-home', 'user');
         yield MenuItem::linkToLogout('Deconnexion', 'fas fa-sign-out-alt');
     }
 }

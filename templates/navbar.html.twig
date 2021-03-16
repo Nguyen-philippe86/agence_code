@@ -9,7 +9,7 @@
                 <li><a href="{{ path ('security_registration') }}">Inscription</a></li>
                 <li><a href="{{ path ('security_login') }}">Connexion</a></li>
                         {% else %}
-                <li><a href="{{ path ('user_property') }}">Mon compte</a></li>
+                <li><a href="{{ path ('user') }}">Mon compte</a></li>
                         {% if is_granted('ROLE_ADMIN')%}
                 <li><a href="{{ path ('admin') }}">Interface admin</a></li>
                         {% endif %}

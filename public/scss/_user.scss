@@ -45,7 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 95%;
+    width: 77%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
@@ -60,7 +60,7 @@
         padding-right: 40px;
         display: flex;
         flex-direction: column;
-        margin-right: 30px;
+        padding-left: 40px;
         .titleIdentity{
             background-color: $darkblue;
             color: white;
@@ -92,10 +92,10 @@
         }
     }
     .containerCardUser{
-        width: 60%;
+        width: 760px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         .contentTitle{
             width: 100%;
             height: auto;
@@ -157,12 +157,13 @@
                 }
                 .btn-delete{
                     padding: 12px 34px;
-                    background-color: $redlight;
-                    color: white;
-                    border: none;
+                    background-color: white;
+                    color: $redlight;
+                    border: 2px solid $redlight;
                     cursor: pointer;
                     &:hover{
-                        background-color: $darkblue;
+                        background-color: $redlight;
+                        color: white;
                         cursor: pointer;
                     }
                 }

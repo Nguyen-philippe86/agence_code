@@ -235,6 +235,14 @@ section .containerCard .card .showProperty > a:hover {
 .containerShow .contentShow .cardShow p {
   padding: 5px 0;
 }
+.containerShow #b2 {
+  margin: 30px;
+  padding: 15px;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
 @media (min-width: 500px) and (max-width: 1080px) {
   .containerShow {
@@ -243,6 +251,13 @@ section .containerCard .card .showProperty > a:hover {
 }
 .showContact {
   display: none;
+  margin-left: 30px;
+  padding-top: 15px;
+}
+.showContact p > i {
+  font-size: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
 .messageFlash {
@@ -295,7 +310,7 @@ section .containerCard .card .showProperty > a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 95%;
+  width: 77%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
@@ -311,7 +326,7 @@ section .containerCard .card .showProperty > a:hover {
   padding-right: 40px;
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  padding-left: 40px;
 }
 .containerUser .containerInfoProfil .titleIdentity {
   background-color: #1e272e;
@@ -343,10 +358,10 @@ section .containerCard .card .showProperty > a:hover {
   color: white;
 }
 .containerUser .containerCardUser {
-  width: 60%;
+  width: 760px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .containerUser .containerCardUser .contentTitle {
   width: 100%;
@@ -411,13 +426,14 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerUser .containerCardUser .cardUser .actionUser .btn-delete {
   padding: 12px 34px;
-  background-color: #ff5252;
-  color: white;
-  border: none;
+  background-color: white;
+  color: #ff5252;
+  border: 2px solid #ff5252;
   cursor: pointer;
 }
 .containerUser .containerCardUser .cardUser .actionUser .btn-delete:hover {
-  background-color: #1e272e;
+  background-color: #ff5252;
+  color: white;
   cursor: pointer;
 }
 

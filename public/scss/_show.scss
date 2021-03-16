@@ -44,6 +44,15 @@
             }
         }
     }
+    #b2{
+        margin: 30px;
+        padding: 15px;
+        background-color: #ff5252;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
 }
 @media (min-width: 500px) and (max-width:1080px){
     .containerShow{
@@ -52,4 +61,11 @@
 }
 .showContact{
     display: none;
+    margin-left: 30px;
+    padding-top: 15px;
+    p > i{
+        font-size: 20px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
 }

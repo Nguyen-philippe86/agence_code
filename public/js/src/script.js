@@ -16,7 +16,7 @@ function close(){
 // Contact cacher
 $(document).ready(function(){  
     $("#b2").click(function(){
-        $(".showContact").show();
+        $(".showContact").toggle(500);
     });
 });
 
