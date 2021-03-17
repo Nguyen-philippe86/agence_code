@@ -1,29 +1,46 @@
 .containerHome{
+    background-image: url(../img/background-image.jpeg);
+    background-size: cover;
     width: 100%;
-    height: 30vh;
-}
-.containerCarousel{
-    width: 90%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    .slideShow{
-        width: 400px;
-        height: 350px;
-        overflow: hidden;
-        border: 3px solide red;
+    height: 100vh;
+    .containerMsgHome{
+        width: 100%;
+        height: 30vh;
+    }
+    .containerCarousel{
+        width: 90%;
+        height: 50vh;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
-        ul{
-            width: 400%;
-            height: 350px;
-            padding:0; margin:0;
-            list-style: none;
+        align-items: center;
+        background-color: white;
+        box-shadow: 1px 1px 20px black;
+        padding: 0px 86px;
+        .slider {
+            width: 750px;
+            overflow: hidden;
+            margin: auto;
+            .slides{
+                width: calc(750px * 5);
+                animation: glisse 50s cubic-bezier(0, 0, 1, 1) infinite;
+                .slide{
+                    float: left;
+                    margin: 0px 10px;
+                }
+            }
         }
-        li{
-            float: left;
+        @keyframes glisse {
+            0%{
+                transform: translateX(0px)
+            }
+            50%{
+                transform: translateX(-900px)
+            }
+            100%{
+                transform: translateX(0px)
+            }
         }
     }
 }
+    

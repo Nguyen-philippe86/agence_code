@@ -153,35 +153,49 @@ footer .containerFooter {
 }
 
 .containerHome {
+  background-image: url(../img/background-image.jpeg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+.containerHome .containerMsgHome {
   width: 100%;
   height: 30vh;
 }
-
-.containerCarousel {
+.containerHome .containerCarousel {
   width: 90%;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 50vh;
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 1px 1px 20px black;
+  padding: 0px 86px;
 }
-.containerCarousel .slideShow {
-  width: 400px;
-  height: 350px;
+.containerHome .containerCarousel .slider {
+  width: 750px;
   overflow: hidden;
-  border: 3px solide red;
-  display: flex;
+  margin: auto;
 }
-.containerCarousel .slideShow ul {
-  width: 400%;
-  height: 350px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.containerHome .containerCarousel .slider .slides {
+  width: calc(750px * 5);
+  animation: glisse 50s cubic-bezier(0, 0, 1, 1) infinite;
 }
-.containerCarousel .slideShow li {
+.containerHome .containerCarousel .slider .slides .slide {
   float: left;
+  margin: 0px 10px;
+}
+@keyframes glisse {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 section {
