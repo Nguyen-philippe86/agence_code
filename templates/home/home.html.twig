@@ -4,6 +4,22 @@
 
 {% block body %}
 
+    
 
+        <div class="containerHome">
+        ...
+        </div>
 
+        <div class="containerCarousel">
+
+            {% for properties in property %}
+                <div class="slideShow">
+                    <ul>
+                        <li><img src="{{ asset('img/' ~ properties.pictures )}}" width="400" height="250"></li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
+        
 {% endblock %}

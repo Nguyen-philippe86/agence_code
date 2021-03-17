@@ -23,9 +23,11 @@ header{
             margin: 6px;
             font-size: 25px;
             text-transform: uppercase;
+            font-weight: bold;
             color: white;
             letter-spacing: -3px;
             word-spacing: 10px;
+            text-decoration: none;
         }
         .mainMenu{
             display: flex;
@@ -58,7 +60,7 @@ header{
             cursor: pointer;
         }
     }
-    @media screen and (max-width: 768px) and (min-width: 500px){
+    @media screen and (max-width: 768px) and (min-width: 300px){
         .containerLogo > a > h2{
             font-size: 20px;
         } 

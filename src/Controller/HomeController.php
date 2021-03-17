@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PropertyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,12 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function home(PropertyRepository $repository): Response
     {
-        return $this->render('home/home.html.twig');
+        $property = $repository->findAll();
+
+        return $this->render('home/home.html.twig', [
+            'property' => $property,
+        ]);
     }
 }

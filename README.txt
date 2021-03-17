@@ -67,3 +67,12 @@ symfony console make:admin:crud
 *Convertir les clé fk de la table Property en string
 	-> dans Entity/Category & Type & User
 	-> rajouter une public function __toString pour convertir la conversion de l'ID en string
+
+
+
+1 -	php bin/console cache:clear
+2 - php bin/console cache:clear --env=prod
+3 - APP_ENV à "prod" et de  APP_DEBUG à 0
+4 - composer require symfony/requirements-checker
+
+
