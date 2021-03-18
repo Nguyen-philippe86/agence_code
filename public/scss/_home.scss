@@ -1,24 +1,40 @@
 .containerHome{
-    background-image: url(../img/background-image.jpeg);
+    background-image: url(../img/new-york.jpeg);
     background-size: cover;
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     .containerMsgHome{
         width: 100%;
         height: 30vh;
+        .titleHome{
+            padding: 75px;
+            color: white;
+            h1{
+                font-size: 50px;
+                margin: 25px 0;
+                text-transform: uppercase;
+            }
+        }
     }
     .containerCarousel{
-        width: 90%;
-        height: 50vh;
+        width: 955px;
+        height: 475px;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         align-items: center;
+        flex-direction: column;
         background-color: white;
         box-shadow: 1px 1px 20px black;
-        padding: 0px 86px;
+        .titleSlide{
+            height: 50px;
+            align-items: center;
+            display: flex;
+        }
         .slider {
-            width: 750px;
+            width: 915px;
             overflow: hidden;
             margin: auto;
             .slides{

@@ -4,26 +4,29 @@
     margin-right: auto;
     justify-content: flex-start;
     padding: 40px;
-    background: linear-gradient(to right, #D4EDD9, white);}
+    background: linear-gradient(to right, #D4EDD9, white);
+}
 .create{
     position: relative;
-    color: $redlight;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
     height: 50px;
     font-size: 15px;
+    font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
     margin: 25px auto;
-    border: 2px solid $redlight;
+    border: 2px solid white;
     overflow: hidden;
     transition: color 0.8s ease;
     &:hover{
         color: white;
         &::before{
             transform: translate(-50%, -50%) rotate(22deg) scaleY(5);
+            background-color: $redlight;
         }
     }
     &::before{
@@ -48,18 +51,20 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
+    margin-bottom: 20px;
     h3{
         margin-bottom: 30px;
     }
     .containerInfoProfil{
         width: 430px;
-        height: auto;
+        height: 650px;
         margin-bottom: 40px;
-        margin-top: 15px;
-        padding-right: 40px;
+        margin-right: 40px;
+        margin-left: 40px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
-        padding-left: 40px;
+        background-color: white;
         .titleIdentity{
             background-color: $darkblue;
             color: white;
@@ -80,6 +85,9 @@
             li{
                 margin: 7px 0;
                 padding-left: 10px;
+                i{
+                    margin-right: 10px;
+                }
             }
         }
         a{
@@ -95,6 +103,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        background: white;
         .contentTitle{
             width: 100%;
             height: auto;
@@ -169,5 +178,22 @@
             }
         }
     }
+    @media screen and (max-width: 1000px) and (min-width: 768px){
+        .containerCardUser{
+            width: 520px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+            margin-left: 0px;
+        }
+    }
+    @media screen and (max-width: 768px) and (min-width: 350px){
+        .containerCardUser{
+            width: 475px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+            margin-left: 0px;
+        }
+    }
 }
-    

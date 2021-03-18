@@ -2,14 +2,13 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
     .formLogin{
         width: 500px;
         padding: 40px;
-        position: absolute;
-        top: 62%;
-        left: 50%;
         background-color: white;
-        transform: translate(-50%, -50%);
         box-shadow: 1px 1px 25px grey;
         text-align: center;
         input[type = "text"], input[type = "password"]{
@@ -48,11 +47,25 @@
                 border: 2px solid $redlight;
             }
         }
-        @media screen and (max-width: 650px) and (min-width: 375px){
-            .containerLogin > .formLogin{
-                top: 5%;
+    }      
+}
+@media screen and (max-width: 550px) and (min-width: 350px){
+    .containerLogin{
+        margin-top: 100px;
+        .formLogin{
+            width: 400px;
+            padding: 0px;
+            input[type = "text"], input[type = "password"]{
+                background: none;
+                display: block;
+                margin: 20px auto;
+                padding: 15px 50px;
+                width: 200px;
+                &:focus{
+                    width: 250px;
+                }
             }
-        }      
+        }
     }
 }
 .errorLogin{

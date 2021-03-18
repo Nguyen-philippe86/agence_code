@@ -10,11 +10,13 @@
 
 header {
   width: 100%;
-  height: 75px;
+  height: 90px;
   display: flex;
   background-color: #1e272e;
 }
 header nav {
+  width: 100%;
+  height: 90px;
   font-family: "roboto", arial, helvetica;
   color: #ff5252;
   display: flex;
@@ -23,7 +25,6 @@ header nav {
   position: fixed;
   background-color: #1e272e;
   top: 0;
-  width: 100%;
   z-index: 2;
 }
 header nav .logo {
@@ -42,7 +43,7 @@ header nav .mainMenu {
 }
 header nav .mainMenu li > a {
   display: inline-block;
-  padding: 50px 15px 10px 15px;
+  padding: 60px 15px 10px 15px;
   text-decoration: none;
   text-transform: uppercase;
   color: white;
@@ -110,9 +111,19 @@ header nav .mainMenu .closeMenu, header nav > i {
 }
 
 body {
-  background-color: white;
-  background-size: cover;
   font-family: "roboto";
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/new-york.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body .filter {
+  filter: blur(5px);
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
 }
 body .titre {
   font-size: 50px;
@@ -120,7 +131,7 @@ body .titre {
   align-items: center;
   justify-content: center;
   margin: 60px 0 45px;
-  color: #1e272e;
+  color: white;
   text-transform: uppercase;
   text-align: center;
 }
@@ -133,19 +144,23 @@ body .titre::before, body .titre::after {
 body .titre::before {
   margin-right: 10px;
   margin-left: 2%;
-  background: linear-gradient(to right, transparent, #1e272e);
+  background: linear-gradient(to right, transparent, white);
 }
 body .titre::after {
-  margin-right: 5px;
-  margin-left: 2%;
-  background: linear-gradient(to left, transparent, #1e272e);
+  margin-right: 2%;
+  margin-left: 10px;
+  background: linear-gradient(to left, transparent, white);
 }
 
 footer {
+  width: 100%;
+  bottom: 0;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #1e272e;
+  color: white;
 }
 footer .containerFooter {
   display: flex;
@@ -153,28 +168,44 @@ footer .containerFooter {
 }
 
 .containerHome {
-  background-image: url(../img/background-image.jpeg);
+  background-image: url(../img/new-york.jpeg);
   background-size: cover;
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .containerHome .containerMsgHome {
   width: 100%;
   height: 30vh;
 }
+.containerHome .containerMsgHome .titleHome {
+  padding: 75px;
+  color: white;
+}
+.containerHome .containerMsgHome .titleHome h1 {
+  font-size: 50px;
+  margin: 25px 0;
+  text-transform: uppercase;
+}
 .containerHome .containerCarousel {
-  width: 90%;
-  height: 50vh;
+  width: 955px;
+  height: 475px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
+  flex-direction: column;
   background-color: white;
   box-shadow: 1px 1px 20px black;
-  padding: 0px 86px;
+}
+.containerHome .containerCarousel .titleSlide {
+  height: 50px;
+  align-items: center;
+  display: flex;
 }
 .containerHome .containerCarousel .slider {
-  width: 750px;
+  width: 915px;
   overflow: hidden;
   margin: auto;
 }
@@ -287,6 +318,18 @@ section .containerCard .card .showProperty > a:hover {
   padding: 15px 0;
   color: #ff5252;
 }
+@media screen and (max-width: 900px) and (min-width: 500px) {
+  .containerShow .contentShow .cardShow {
+    font-size: 15px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 500px) and (min-width: 350px) {
+  .containerShow .contentShow .cardShow {
+    font-size: 10px;
+    padding: 0;
+  }
+}
 .containerShow .contentShow .cardShow ul {
   list-style-type: none;
   padding-bottom: 15px;
@@ -303,12 +346,21 @@ section .containerCard .card .showProperty > a:hover {
   border: none;
   cursor: pointer;
 }
-
-@media (min-width: 500px) and (max-width: 1080px) {
-  .containerShow {
-    margin-top: 50px;
+@media (max-width: 900px) and (min-width: 500px) {
+  .containerShow #b2 {
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 0px;
   }
 }
+@media screen and (max-width: 500px) and (min-width: 350px) {
+  .containerShow #b2 {
+    font-size: 10px;
+    padding: 10px;
+    margin-left: 0px;
+  }
+}
+
 .showContact {
   display: none;
   margin-left: 30px;
@@ -320,6 +372,28 @@ section .containerCard .card .showProperty > a:hover {
   padding-top: 10px;
 }
 
+@media (max-width: 900px) and (min-width: 500px) {
+  .showContact {
+    margin-left: 0;
+  }
+  .showContact p {
+    font-size: 15px;
+  }
+  .showContact p i {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 500px) and (min-width: 350px) {
+  .showContact {
+    margin-left: 0;
+  }
+  .showContact p {
+    font-size: 10px;
+  }
+  .showContact p i {
+    font-size: 10px;
+  }
+}
 .messageFlash {
   display: flex;
   margin-left: auto;
@@ -331,17 +405,18 @@ section .containerCard .card .showProperty > a:hover {
 
 .create {
   position: relative;
-  color: #ff5252;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 300px;
   height: 50px;
   font-size: 15px;
+  font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   margin: 25px auto;
-  border: 2px solid #ff5252;
+  border: 2px solid white;
   overflow: hidden;
   transition: color 0.8s ease;
 }
@@ -350,6 +425,7 @@ section .containerCard .card .showProperty > a:hover {
 }
 .create:hover::before {
   transform: translate(-50%, -50%) rotate(22deg) scaleY(5);
+  background-color: #ff5252;
 }
 .create::before {
   background-color: #ff5252;
@@ -373,19 +449,21 @@ section .containerCard .card .showProperty > a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
+  margin-bottom: 20px;
 }
 .containerUser h3 {
   margin-bottom: 30px;
 }
 .containerUser .containerInfoProfil {
   width: 430px;
-  height: auto;
+  height: 650px;
   margin-bottom: 40px;
-  margin-top: 15px;
-  padding-right: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
+  background-color: white;
 }
 .containerUser .containerInfoProfil .titleIdentity {
   background-color: #1e272e;
@@ -409,6 +487,9 @@ section .containerCard .card .showProperty > a:hover {
   margin: 7px 0;
   padding-left: 10px;
 }
+.containerUser .containerInfoProfil ul li i {
+  margin-right: 10px;
+}
 .containerUser .containerInfoProfil a {
   padding: 15px;
   background: #ff5252;
@@ -421,6 +502,7 @@ section .containerCard .card .showProperty > a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  background: white;
 }
 .containerUser .containerCardUser .contentTitle {
   width: 100%;
@@ -495,6 +577,24 @@ section .containerCard .card .showProperty > a:hover {
   color: white;
   cursor: pointer;
 }
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+  .containerUser .containerCardUser {
+    width: 520px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerUser .containerCardUser {
+    width: 475px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-left: 0px;
+  }
+}
 
 .containerCreate {
   width: 75vw;
@@ -534,7 +634,6 @@ section .containerCard .card .showProperty > a:hover {
   width: 100%;
   height: 35px;
   border: 1px solid #222f3e;
-  border-radius: 5px;
 }
 .containerCreate form .formCreate .formWidget input:focus {
   background-color: #222e3e0e;
@@ -567,6 +666,16 @@ section .containerCard .card .showProperty > a:hover {
 .containerCreate form .formCreate .containerSelect .formTitle {
   height: 30px;
 }
+@media screen and (max-width: 1000px) and (min-width: 800px) {
+  .containerCreate form .formCreate .formTitle {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 800px) and (min-width: 350px) {
+  .containerCreate form .formCreate .formTitle {
+    font-size: 15px;
+  }
+}
 .containerCreate form .btn-create {
   margin-top: 20px;
   padding: 10px 50px;
@@ -586,15 +695,14 @@ section .containerCard .card .showProperty > a:hover {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
 }
 .containerLogin .formLogin {
   width: 500px;
   padding: 40px;
-  position: absolute;
-  top: 62%;
-  left: 50%;
   background-color: white;
-  transform: translate(-50%, -50%);
   box-shadow: 1px 1px 25px grey;
   text-align: center;
 }
@@ -634,12 +742,26 @@ section .containerCard .card .showProperty > a:hover {
   color: white;
   border: 2px solid #ff5252;
 }
-@media screen and (max-width: 650px) and (min-width: 375px) {
-  .containerLogin .formLogin .containerLogin > .formLogin {
-    top: 5%;
+
+@media screen and (max-width: 550px) and (min-width: 350px) {
+  .containerLogin {
+    margin-top: 100px;
+  }
+  .containerLogin .formLogin {
+    width: 400px;
+    padding: 0px;
+  }
+  .containerLogin .formLogin input[type=text], .containerLogin .formLogin input[type=password] {
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 15px 50px;
+    width: 200px;
+  }
+  .containerLogin .formLogin input[type=text]:focus, .containerLogin .formLogin input[type=password]:focus {
+    width: 250px;
   }
 }
-
 .errorLogin {
   display: flex;
   margin-left: auto;

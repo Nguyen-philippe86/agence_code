@@ -5,10 +5,12 @@
 }
 header{
     width: 100%;
-    height: 75px;
+    height: 90px;
     display: flex;
     background-color: $darkblue;
     nav{
+        width: 100%;
+        height: 90px;
         font-family: 'roboto', arial, helvetica;
         color: #ff5252;
         display: flex;
@@ -17,7 +19,6 @@ header{
         position: fixed;
         background-color: $darkblue;
         top: 0;
-        width: 100%;
         z-index: 2;
         .logo{
             margin: 6px;
@@ -34,14 +35,14 @@ header{
             list-style: none;
             li > a{
                 display: inline-block;
-                padding: 50px 15px 10px 15px;
+                padding: 60px 15px 10px 15px;
                 text-decoration: none;
                 text-transform: uppercase;
                 color: white;
                 font-size: 15px;
                 font-weight: bold;
                 &:hover{
-                    background:#ff5252;
+                    background:$redlight;
                     transform: scale(1.15);
                     transition: all 0.35s ease-in-out;
                     z-index: 1;
