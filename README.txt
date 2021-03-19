@@ -85,5 +85,5 @@ DEPLOIEMENT DU SITE SYMFONY
 -> modifier le .env -> DATABASE_URL="mysql://gkbe7114:Juliekou0101@127.0.0.1:3306/gkbe7114_agence_code?serverVersion=mariadb-10.3.28"
 		* nom d'utilisateur (gkbe7114) + mdp (Juliekou0101) + nom BDD (gkbe7114_agence_code) + version du serveur (mariadb-10.3.28)
 -> se connecter en SSH au serveur
--> télécharger apache-pack -> composer require symfony/apache-pack
+-> télécharger apache-pack sur le serveur SSH dans le dossier du projet -> composer require symfony/apache-pack
 
