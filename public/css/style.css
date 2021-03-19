@@ -400,7 +400,7 @@ section .containerCard .card .showProperty > a:hover {
   margin-right: auto;
   justify-content: flex-start;
   padding: 40px;
-  background: linear-gradient(to right, #D4EDD9, white);
+  background: linear-gradient(to right, #D4EDD9, rgba(0, 0, 0, 0));
 }
 
 .create {
@@ -577,6 +577,13 @@ section .containerCard .card .showProperty > a:hover {
   color: white;
   cursor: pointer;
 }
+@media screen and (max-width: 1649px) and (min-width: 1000px) {
+  .containerUser .containerCardUser {
+    width: 1150px;
+    display: flex;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 1000px) and (min-width: 768px) {
   .containerUser .containerCardUser {
     width: 520px;
@@ -697,7 +704,7 @@ section .containerCard .card .showProperty > a:hover {
   margin-right: auto;
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .containerLogin .formLogin {
   width: 500px;

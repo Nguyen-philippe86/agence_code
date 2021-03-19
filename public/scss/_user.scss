@@ -4,7 +4,7 @@
     margin-right: auto;
     justify-content: flex-start;
     padding: 40px;
-    background: linear-gradient(to right, #D4EDD9, white);
+    background: linear-gradient(to right, #D4EDD9, rgba(0, 0, 0, 0));
 }
 .create{
     position: relative;
@@ -176,6 +176,13 @@
                     }
                 }
             }
+        }
+    }
+    @media screen and (max-width: 1649px) and (min-width: 1000px){
+        .containerCardUser{
+            width: 1150px;
+            display: flex;
+            justify-content: center;
         }
     }
     @media screen and (max-width: 1000px) and (min-width: 768px){

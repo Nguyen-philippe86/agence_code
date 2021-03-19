@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Property;
 use App\Repository\PropertyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,9 @@ class HomeController extends AbstractController
      */
     public function home(PropertyRepository $repository): Response
     {
-        $property = $repository->findAll();
+        $repository = $this->getDoctrine()->getRepository(Property::class);
+
+        $property = $repository->findBy([], ['id' => 'DESC'], 3);
 
         return $this->render('home/home.html.twig', [
             'property' => $property,
