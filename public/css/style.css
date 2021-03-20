@@ -151,20 +151,15 @@ body .titre::after {
   margin-left: 10px;
   background: linear-gradient(to left, transparent, white);
 }
-
-footer {
-  width: 100%;
-  bottom: 0;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #1e272e;
-  color: white;
+@media screen and (max-width: 975px) and (min-width: 768px) {
+  body .titre {
+    font-size: 30px;
+  }
 }
-footer .containerFooter {
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  body .titre {
+    font-size: 20px;
+  }
 }
 
 .containerHome {
@@ -187,6 +182,36 @@ footer .containerFooter {
   font-size: 50px;
   margin: 25px 0;
   text-transform: uppercase;
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome .containerMsgHome .titleHome h1 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome .containerMsgHome .titleHome h3 {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome .containerMsgHome .titleHome {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 975px) and (min-width: 768px) {
+  .containerHome .containerMsgHome .titleHome {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome .containerMsgHome {
+    height: 25vh;
+  }
+}
+@media screen and (max-width: 975px) and (min-width: 768px) {
+  .containerHome .containerMsgHome {
+    height: 20vh;
+  }
 }
 .containerHome .containerCarousel {
   width: 955px;
@@ -228,7 +253,82 @@ footer .containerFooter {
     transform: translateX(0px);
   }
 }
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome .containerCarousel {
+    width: 350px;
+    height: 250px;
+  }
+  .containerHome .containerCarousel .titleSlide {
+    height: 25px;
+  }
+  .containerHome .containerCarousel .titleSlide h3 {
+    font-size: 10px;
+  }
+  .containerHome .containerCarousel .slider {
+    width: 325px;
+    height: 190px;
+  }
+  .containerHome .containerCarousel .slider .slides {
+    width: calc(235px * 5);
+    animation: glisse 20s cubic-bezier(0, 0, 1, 1) infinite;
+  }
+  .containerHome .containerCarousel .slider .slides .slide > img {
+    width: 235px;
+    height: 225px;
+  }
+  @keyframes glisse {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-410px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+}
+@media screen and (max-width: 975px) and (min-width: 768px) {
+  .containerHome .containerCarousel {
+    width: 600px;
+    height: 250px;
+  }
+  .containerHome .containerCarousel .titleSlide {
+    height: 25px;
+  }
+  .containerHome .containerCarousel .titleSlide h3 {
+    font-size: 15px;
+  }
+  .containerHome .containerCarousel .slider {
+    width: 525px;
+    height: 190px;
+  }
+  .containerHome .containerCarousel .slider .slides {
+    width: calc(235px * 5);
+    animation: glisse 5s cubic-bezier(0, 0, 1, 1) infinite;
+  }
+  .containerHome .containerCarousel .slider .slides .slide > img {
+    width: 235px;
+    height: 225px;
+  }
+  @keyframes glisse {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-210px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+}
 
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerHome {
+    height: auto;
+  }
+}
 section {
   width: 100%;
 }
@@ -275,6 +375,11 @@ section .containerCard .card .showProperty > a {
 }
 section .containerCard .card .showProperty > a:hover {
   background-color: #ff5252;
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  section .containerCard .card {
+    margin-left: 0;
+  }
 }
 
 .back {
@@ -441,6 +546,12 @@ section .containerCard .card .showProperty > a:hover {
   transform: translate(-50%, -50%) rotate(22deg) scaleY(0);
 }
 
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .create {
+    width: 350px;
+    font-size: 15px;
+  }
+}
 .containerUser {
   display: flex;
   flex-wrap: wrap;
@@ -496,6 +607,12 @@ section .containerCard .card .showProperty > a:hover {
   text-align: center;
   text-decoration: none;
   color: white;
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerUser .containerInfoProfil > h3 {
+    font-size: 15px;
+    margin: 5px 0px 25px 15px;
+  }
 }
 .containerUser .containerCardUser {
   width: 760px;
@@ -595,14 +712,34 @@ section .containerCard .card .showProperty > a:hover {
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
   .containerUser .containerCardUser {
-    width: 475px;
+    width: 350px;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 15px;
     margin-left: 0px;
   }
+  .containerUser .containerCardUser .contentTitle > h3 {
+    font-size: 15px;
+  }
+  .containerUser .containerCardUser .cardUser {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerUser {
+    width: 100%;
+    margin-top: 25px;
+  }
+  .containerUser .containerInfoProfil {
+    margin-bottom: 15px;
+    margin-right: 12px;
+    margin-left: 12px;
+    padding: 6px;
+    height: 550px;
+  }
+}
 .containerCreate {
   width: 75vw;
   height: auto;
@@ -673,14 +810,18 @@ section .containerCard .card .showProperty > a:hover {
 .containerCreate form .formCreate .containerSelect .formTitle {
   height: 30px;
 }
-@media screen and (max-width: 1000px) and (min-width: 800px) {
+@media screen and (max-width: 1000px) and (min-width: 768px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 800px) and (min-width: 350px) {
+@media screen and (max-width: 768px) and (min-width: 350px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 15px;
+    width: 90%;
+  }
+  .containerCreate form .formCreate .formWidget {
+    width: 90%;
   }
 }
 .containerCreate form .btn-create {
@@ -698,6 +839,18 @@ section .containerCard .card .showProperty > a:hover {
   background: #ff5252;
 }
 
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerCreate {
+    width: 90vw;
+    padding-top: 0px;
+  }
+  .containerCreate form {
+    width: 100%;
+  }
+  .containerCreate form .formCreate > .formWidget {
+    width: 90%;
+  }
+}
 .containerLogin {
   width: 75%;
   margin-left: auto;
@@ -776,7 +929,7 @@ section .containerCard .card .showProperty > a:hover {
   margin-top: -35px;
   justify-content: flex-start;
   padding: 40px;
-  background: linear-gradient(to right, #F8D7DA, white);
+  background: linear-gradient(to right, #F8D7DA, rgba(0, 0, 0, 0));
 }
 
 /*# sourceMappingURL=style.css.map */

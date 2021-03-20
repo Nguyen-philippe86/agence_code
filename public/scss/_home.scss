@@ -16,6 +16,36 @@
                 margin: 25px 0;
                 text-transform: uppercase;
             }
+            @media screen and (max-width: 768px) and (min-width: 350px){
+                h1{
+                    font-size: 20px;
+                }
+            }
+            @media screen and (max-width: 768px) and (min-width: 350px){
+                h3{
+                    font-size: 15px;
+                }
+            }
+        }
+        @media screen and (max-width: 768px) and (min-width: 350px){
+            .titleHome{
+                padding: 10px;
+            }
+        }
+        @media screen and (max-width: 975px) and (min-width: 768px){
+            .titleHome{
+                padding: 50px;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) and (min-width: 350px){
+        .containerMsgHome{
+            height: 25vh;
+        }
+    }
+    @media screen and (max-width: 975px) and (min-width: 768px){
+        .containerMsgHome{
+            height: 20vh;
         }
     }
     .containerCarousel{
@@ -58,5 +88,79 @@
             }
         }
     }
+    @media screen and (max-width: 768px) and (min-width: 350px){
+        .containerCarousel{
+            width: 350px;
+            height: 250px;
+            .titleSlide{ 
+                height: 25px;
+                    h3{
+                    font-size: 10px;
+                }
+            }
+            .slider{
+                width: 325px;
+                height: 190px;
+                .slides{
+                    width: calc(235px * 5);
+                    animation: glisse 20s cubic-bezier(0, 0, 1, 1) infinite;
+                    .slide > img{
+                        width: 235px;
+                        height: 225px;
+                    }
+                }
+                @keyframes glisse {
+                    0%{
+                        transform: translateX(0px)
+                    }
+                    50%{
+                        transform: translateX(-410px)
+                    }
+                    100%{
+                        transform: translateX(0px)
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 975px) and (min-width: 768px){
+        .containerCarousel{
+            width: 600px;
+            height: 250px;
+            .titleSlide{ 
+                height: 25px;
+                    h3{
+                    font-size: 15px;
+                }
+            }
+            .slider{
+                width: 525px;
+                height: 190px;
+                .slides{
+                    width: calc(235px * 5);
+                    animation: glisse 5s cubic-bezier(0, 0, 1, 1) infinite;
+                    .slide > img{
+                        width: 235px;
+                        height: 225px;
+                    }
+                }
+                @keyframes glisse {
+                    0%{
+                        transform: translateX(0px)
+                    }
+                    50%{
+                        transform: translateX(-210px)
+                    }
+                    100%{
+                        transform: translateX(0px)
+                    }
+                }
+            }
+        }
+    }
 }
-    
+@media screen and (max-width: 768px) and (min-width: 350px){
+    .containerHome{
+        height: auto;
+    }
+}

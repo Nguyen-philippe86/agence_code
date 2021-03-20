@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
             'error' => $util->getLastAuthenticationError(), // On envoie l'erreur à la vue
         ]);
 
-        return $this->redirectToRoute('user');
+        return $this->redirectToRoute('property');
     }
 
     /**

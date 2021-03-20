@@ -64,7 +64,7 @@ class UserController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
 
-            return $this->redirectToRoute('user'); //Redirige vers la page "property"
+            return $this->redirectToRoute('user_property'); //Redirige vers la page "property"
         }
 
         return $this->render('user/create.html.twig', [//Si y a création retourne l'affichage de création sur la page "create.html.twig"
@@ -88,7 +88,7 @@ class UserController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Profil mis à jour');
 
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('user_property');
         }
 
         return $this->render('user/edit-profil.html.twig', [
@@ -106,7 +106,7 @@ class UserController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'La suppression a été effectué');
 
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('user_property');
         }
     }
 }

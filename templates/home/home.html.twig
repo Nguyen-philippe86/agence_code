@@ -3,30 +3,7 @@
 {% block title %}Agence Code{% endblock %}
 
 {% block body %}
-    
-    <div class="containerHome">
-        <div class="containerMsgHome">
-            <div class="titleHome">
-            <h1>Bienvenue sur Agence Code</h1>
-                <h3>Visitez le site et trouvez le bien de vos rêves</h3>
-            </div>
-        </div>
 
-        <div class="containerCarousel">
-            <div class="titleSlide">
-                <h3>Les 3 dernières annonces ajoutées</h3>
-            </div>
-            <div class="slider">
-                <div class="slides">
-                    <div class="slide">
-                        {% for properties in property %}
-                            <img src="{{ asset('img/'~ properties.pictures)}}" width="600" height="400">
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
-        
+
 {% endblock %}

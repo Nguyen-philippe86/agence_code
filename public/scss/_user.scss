@@ -43,6 +43,12 @@
         transform: translate(-50%, -50%) rotate(22deg) scaleY(0);
     }
 }
+@media screen and (max-width: 768px) and (min-width: 350px){
+    .create{
+        width: 350px;
+        font-size: 15px;
+    }
+}
 .containerUser{
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +102,12 @@
             text-align: center;
             text-decoration: none;
             color: white;
+        }
+    }
+    @media screen and (max-width: 768px) and (min-width: 350px){
+        .containerInfoProfil > h3{
+            font-size: 15px;
+            margin: 5px 0px 25px 15px;
         }
     }
     .containerCardUser{
@@ -196,11 +208,31 @@
     }
     @media screen and (max-width: 768px) and (min-width: 350px){
         .containerCardUser{
-            width: 475px;
+            width: 350px;
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 15px;
             margin-left: 0px;
+            .contentTitle > h3{
+                font-size: 15px;
+            }
+            .cardUser{
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) and (min-width: 350px){
+    .containerUser{
+        width: 100%;
+        margin-top: 25px;
+        .containerInfoProfil{
+            margin-bottom: 15px;
+            margin-right: 12px;
+            margin-left: 12px;
+            padding: 6px;
+            height: 550px;
         }
     }
 }

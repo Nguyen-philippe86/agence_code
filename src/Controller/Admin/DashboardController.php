@@ -28,7 +28,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('<img src="/public/img/logo.png"></img>')
+            ->setTitle('Agence Code')
         ;
     }
 
