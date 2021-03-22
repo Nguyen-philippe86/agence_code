@@ -162,6 +162,21 @@ body .titre::after {
   }
 }
 
+footer {
+  width: 100%;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e272e;
+  color: white;
+}
+footer .containerFooter {
+  display: flex;
+  justify-content: center;
+}
+
 .containerHome {
   background-image: url(../img/new-york.jpeg);
   background-size: cover;
@@ -375,11 +390,6 @@ section .containerCard .card .showProperty > a {
 }
 section .containerCard .card .showProperty > a:hover {
   background-color: #ff5252;
-}
-@media screen and (max-width: 768px) and (min-width: 350px) {
-  section .containerCard .card {
-    margin-left: 0;
-  }
 }
 
 .back {
@@ -810,18 +820,14 @@ section .containerCard .card .showProperty > a:hover {
 .containerCreate form .formCreate .containerSelect .formTitle {
   height: 30px;
 }
-@media screen and (max-width: 1000px) and (min-width: 768px) {
+@media screen and (max-width: 1000px) and (min-width: 800px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 768px) and (min-width: 350px) {
+@media screen and (max-width: 800px) and (min-width: 350px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 15px;
-    width: 90%;
-  }
-  .containerCreate form .formCreate .formWidget {
-    width: 90%;
   }
 }
 .containerCreate form .btn-create {
@@ -839,18 +845,6 @@ section .containerCard .card .showProperty > a:hover {
   background: #ff5252;
 }
 
-@media screen and (max-width: 768px) and (min-width: 350px) {
-  .containerCreate {
-    width: 90vw;
-    padding-top: 0px;
-  }
-  .containerCreate form {
-    width: 100%;
-  }
-  .containerCreate form .formCreate > .formWidget {
-    width: 90%;
-  }
-}
 .containerLogin {
   width: 75%;
   margin-left: auto;

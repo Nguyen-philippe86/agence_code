@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Property;
+use App\Entity\User;
 use App\Form\EditProfileType;
 use App\Form\PropertyType;
 use App\Repository\PropertyRepository;
@@ -45,40 +46,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/property/create", name="user_create")
-     * @Route("/user/property/{id}", name="user_edit", methods="GET|POST")
+     * @Route("/user/{id}/edit", name="user_profil_edit")
      */
-    public function createAndEdit(Property $property = null, Request $request, EntityManagerInterface $entityManager): Response // On passe en param REQUEST = la requête
+    public function editProfile(User $user = null, Request $request, EntityManagerInterface $entityManager): Response
     {
-        if (!$property) {
-            $property = new Property(); // ajout d'un nouvel property
-        }
-        $form = $this->createForm(PropertyType::class, $property); //appelle du formulaire PopertyType, Si y a madification affiche le formulaire de l'id correspondant
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {//Si le formulaire est valide et soumis
-            $property->setCreatedAt(new \DateTime());
-            $modif = null !== $property->getId();
-            $user = $this->security->getUser();
-            $property->setAuthor($user);
-            $entityManager->persist($property);
-            $entityManager->flush();
-            $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
-
-            return $this->redirectToRoute('user_property'); //Redirige vers la page "property"
+        if (!$user) { // Si il n'y a pas de nouvel property = null
+            $user = new User(); // Alors on créer une property
         }
 
-        return $this->render('user/create.html.twig', [//Si y a création retourne l'affichage de création sur la page "create.html.twig"
-            'property' => $property,
-            'form' => $form->createView(),
-            'isModification' => null !== $property->getid(),
-        ]);
-    }
-
-    /**
-     * @Route("/user/profil/edit", name="user_profil_edit")
-     */
-    public function editProfile(Request $request, EntityManagerInterface $entityManager): Response
-    {
         $user = $this->security->getUser(); // on récupère l'user dans l'entity et on le stock dans la variable $user
         $form = $this->createForm(EditProfileType::class, $user); // on crée le formulaire a partir du type EditProfileType::class
         $form->handleRequest($request);
@@ -88,11 +63,44 @@ class UserController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Profil mis à jour');
 
-            return $this->redirectToRoute('user_property');
+            // return $this->redirectToRoute('user', ['id' => $user->getId()]);
         }
 
         return $this->render('user/edit-profil.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/user/property/create", name="user_create")
+     * @Route("/user/property/{id}", name="user_edit", methods="GET|POST")
+     */
+    public function createAndEdit(Property $property = null, Request $request, EntityManagerInterface $entityManager): Response
+    // On passe en param REQUEST = la requête http (les données quel contient), les infos du formulaire envoyer par la request
+    {
+        if (!$property) { // Si il n'y a pas de nouvel annonce qui est = null
+            $property = new Property(); // Alors on créer une annonce
+        }
+        $form = $this->createForm(PropertyType::class, $property);
+        // Créer une formulaire qui est lié a PopertyType, Si y a modification affiche le formulaire de l'id correspondant
+        $form->handleRequest($request); // Analyse les infos de la request
+        if ($form->isSubmitted() && $form->isValid()) {// Si le formulaire est remplie et valide et soumis
+            $property->setCreatedAt(new \DateTime()); // On donne une info supplémentaire (sa date de création) au formulaire
+            $modif = null !== $property->getId(); // Si dans l"annonce, il y a déjà un ID, alors sa sera une modif
+            $user = $this->security->getUser(); // On récupère donc l'utilisateur
+            $property->setAuthor($user); // On donne une info supplémentaire (son auteur) au formulaire
+            $entityManager->persist($property); // On fait persité l'annonce
+            $entityManager->flush(); // Si tout est OK on balance la requête
+            $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
+            // On renvoie un message de succès cela le mode du formulaire, ajout ou modif
+            return $this->redirectToRoute('user'); // Redirige vers la page "annonce"
+        }
+
+        return $this->render('user/create.html.twig', [// On retourne une réponse / l'affichage
+            'property' => $property,
+            'form' => $form->createView(), // On lui passe le résultat de la fonction createView de ce formulaire
+            'isModification' => null !== $property->getid(),
+            // Si isModification est = null, alors on sera sur modification, sinon l'inverse
         ]);
     }
 
@@ -106,7 +114,7 @@ class UserController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'La suppression a été effectué');
 
-            return $this->redirectToRoute('user_property');
+            return $this->redirectToRoute('user');
         }
     }
 }

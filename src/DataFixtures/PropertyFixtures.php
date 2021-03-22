@@ -55,7 +55,7 @@ class PropertyFixtures extends Fixture
         $user = new User();
 
         $user->setUsername($faker->firstName)
-            ->setName($faker->name('male' | 'female'))
+            ->setFirstname($faker->name('male' | 'female'))
             ->setlastName($faker->lastName)
             ->setAddress($faker->address)
             ->setCountry($faker->country)

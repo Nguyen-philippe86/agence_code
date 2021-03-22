@@ -19,23 +19,21 @@ class SecurityController extends AbstractController
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        $user = new User();
+        $user = new User(); // On crée un nouvel utilisateur
         $form = $this->createForm(RegistrationType::class, $user); // Création de formulaire
-        $form->handleRequest($request); // Récupérer ce que l'utilisateur envoie
+        $form->handleRequest($request); // On récupère la requête que l'utilisateur envoie
 
         if ($form->isSubmitted() && $form->isValid()) { // Condition si le formulaire est soumis ET valide
-            $hash = $encoder->encodePassword($user, $user->getPassword()); // On encodee le hash pour le mot de passe dans la BDD
+            $hash = $encoder->encodePassword($user, $user->getPassword()); // On encode le mot de passe dans la BDD
+            $user->setPassword($hash); //On lie l'encodage avec le mdp de l'utilisateur
+            $manager->persist($user); // On fait persisté
+            $manager->flush(); // On balance la fonction
 
-            $user->setPassword($hash); //on lie l'encodage avec le mdp de l'utilisateur
-
-            $manager->persist($user); // on fait persisté
-            $manager->flush();
-
-            return $this->redirectToRoute('security_login'); // une fois connecter, on renvoie l'utilisateur vers la page login
+            return $this->redirectToRoute('security_login'); // Une fois inscrit, on renvoie l'utilisateur vers la page de connexion
         }
 
         return $this->render('security/registration.html.twig', [
-            'form' => $form->createView(), // Renvoyer le formulaire a la VUE sous forme de tableau associatif
+            'form' => $form->createView(), // Renvoye le formulaire a la vue
         ]);
     }
 
@@ -49,7 +47,7 @@ class SecurityController extends AbstractController
             'error' => $util->getLastAuthenticationError(), // On envoie l'erreur à la vue
         ]);
 
-        return $this->redirectToRoute('property');
+        return $this->redirectToRoute('user');
     }
 
     /**

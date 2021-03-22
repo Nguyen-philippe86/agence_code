@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous les biens{% endblock %}
+{% block title %}Détail de l'annonce{% endblock %}
 
 {% block body %}
     
     <p class="titre">{% block titre %}Détail de l'annonce{% endblock %}</p>
 
     <section>
-
-<!--    <a href="{#{{ path ('property') }}#}" class="back"><i class="fas fa-arrow-left"></i></a> -->
 
         <article class="containerShow">
             <div class="containerPicture">
@@ -29,7 +27,7 @@
                         <li>Type : {{ property.type.title }}</li>
                     </ul>
                     <p>Posté le {{ property.createdAt | date('d/m/Y') }} à {{ property.createdAt | date('H:i')}} par {{ property.author.username }}</p>
-                    <p>Description : {{ property.description }}</p>
+                    <p>Description : {{ property.description | raw }}</p>
                 </div>
 
                 <div class="showContact">
@@ -39,6 +37,7 @@
                 </div>
                 <button id="b2">Coordonnés du vendeur</button>
             </div>
+
 
         </article>
         

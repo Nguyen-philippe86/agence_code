@@ -15,7 +15,8 @@ class PropertyController extends AbstractController
      */
     public function index(PropertyRepository $repo): Response // PropertyRepository = Injection de dépendance
     {
-        $property = $repo->findAll();
+        // $property = $repo->findAll();
+        $property = $repo->findBy([], ['id' => 'DESC']);
 
         return $this->render('property/property.html.twig', [
             'property' => $property,
@@ -23,11 +24,11 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/property/{id}", name="property_show")
+     * @Route("/property/{id}", name="property_show") // route paramétrée, on lui passe en param l'ID
      *
      * @param mixed $id
      */
-    public function show(Property $property): Response // PropertyPropertyRepository = Injection de dépendance
+    public function show(Property $property): Response
     {
         return $this->render('property/show.html.twig', [
             'property' => $property,

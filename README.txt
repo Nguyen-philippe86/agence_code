@@ -67,3 +67,25 @@ symfony console make:admin:crud
 *Convertir les clé fk de la table Property en string
 	-> dans Entity/Category & Type & User
 	-> rajouter une public function __toString pour convertir la conversion de l'ID en string
+
+
+DEPLOIEMENT DU SITE SYMFONY
+-> sur o2switch -> categorie OUTILS -> Autorisation SSH
+-> copier l'adresse IP actuelle puis le coller sur ajouter une nouvelle adresse IP
+-> ajouter l'autorisation
+-> sur FileZilla -> Fichier -> Gestionnaire des sites -> se connecter au serveur en SFTP (FTP & SSH) avec le numéros de port donner sur o2switch
+-> ouvrir le terminal du dossier a déployer -> taper "ssh gkbe7114@chupacabra.o2switch.net (nom d'utilisateur @ nom du serveur) -> valider -> yes (on nous demande si on veut valider une clés)
+-> taper le mot de passe d'acces au serveur o2switchgit
+-> une fois connecter au serveur
+-> créer un dossier a la racine en tapant mkir nom_du_projet
+-> ouvrir un deuxième terminal NON CONNECTER EN SSH mais dans le dossier du projet
+-> 
+-> sur FileZilla -> se connecter au serveur en reprenant la procédure de connexion en SSH avec o2switch
+-> créer la base de données
+-> modifier le .env -> DATABASE_URL="mysql://gkbe7114:Juliekou0101@chupacabra.o2switch.net/gkbe7114_agence_code?serverVersion=mariadb-10.3.28"
+		* nom d'utilisateur(gkbe7114) + mdp(Juliekou0101) + nom du serveur(chupacabra.o2switch.net) + nom BDD(gkbe7114_agence_code) + version du serveur(mariadb-10.3.28)
+-> se connecter en SSH au serveur
+-> télécharger apache-pack pour générer le fichier .htaccess sur le serveur SSH dans le dossier du projet AVANT LA MIS EN LIGNE-> composer require symfony/apache-pack
+-> verifier la version de php sur o2switch et le projet, sinon le changer sur le cpanel serveur o2switch
+
+-> transfère de projet avec git -> se connecter au serveur SSH -> dans le dossier du sous-domaine -> fait un git clone du repo GIT !!! Attention au fichier .gitignore (.env)
