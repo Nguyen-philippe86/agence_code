@@ -179,8 +179,9 @@ footer .containerFooter {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url(../img/background-image.png);
+  background-image: url(../img/background-image2.png);
   background-size: cover;
+  background-attachment: fixed;
 }
 .containerHome .containerMsgHome {
   width: 100%;
@@ -188,12 +189,16 @@ footer .containerFooter {
 }
 .containerHome .containerMsgHome .titleHome {
   padding: 75px;
-  color: #1e272e;
+  color: white;
 }
 .containerHome .containerMsgHome .titleHome h1 {
   font-size: 50px;
   margin: 10px 0;
   text-transform: uppercase;
+  text-shadow: 2px 2px 20px black;
+}
+.containerHome .containerMsgHome .titleHome h3 {
+  text-shadow: 2px 2px 20px black;
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
   .containerHome .containerMsgHome .titleHome h1 {
@@ -950,7 +955,7 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerLogin .formLogin input[type=text], .containerLogin .formLogin input[type=password] {
   border: 0;
-  background: none;
+  background: white;
   display: block;
   margin: 20px auto;
   text-align: center;
@@ -963,11 +968,11 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerLogin .formLogin input[type=text]:focus, .containerLogin .formLogin input[type=password]:focus {
   width: 400px;
-  border-color: #ff5252;
+  border-color: #1e272e;
 }
 .containerLogin .formLogin input[type=submit] {
   border: 0;
-  background: none;
+  background: white;
   display: block;
   margin: 20px auto;
   text-align: center;
@@ -980,9 +985,9 @@ section .containerCard .card .showProperty > a:hover {
   cursor: pointer;
 }
 .containerLogin .formLogin input[type=submit]:hover {
-  background: #ff5252;
+  background: #1e272e;
   color: white;
-  border: 2px solid #ff5252;
+  border: 2px solid #1e272e;
 }
 
 @media screen and (max-width: 550px) and (min-width: 350px) {
