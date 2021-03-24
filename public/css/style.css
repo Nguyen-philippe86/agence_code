@@ -111,13 +111,10 @@ header nav .mainMenu .closeMenu, header nav > i {
 }
 
 body {
-  font-family: "roboto";
+  font-family: "roboto", arial, sans-serif;
   width: 100%;
   height: 100vh;
-  background-image: url(../img/new-york.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: white;
 }
 body .filter {
   filter: blur(5px);
@@ -131,7 +128,7 @@ body .titre {
   align-items: center;
   justify-content: center;
   margin: 60px 0 45px;
-  color: white;
+  color: #1e272e;
   text-transform: uppercase;
   text-align: center;
 }
@@ -144,12 +141,12 @@ body .titre::before, body .titre::after {
 body .titre::before {
   margin-right: 10px;
   margin-left: 2%;
-  background: linear-gradient(to right, transparent, white);
+  background: linear-gradient(to right, transparent, #1e272e);
 }
 body .titre::after {
   margin-right: 2%;
   margin-left: 10px;
-  background: linear-gradient(to left, transparent, white);
+  background: linear-gradient(to left, transparent, #1e272e);
 }
 @media screen and (max-width: 975px) and (min-width: 768px) {
   body .titre {
@@ -158,7 +155,7 @@ body .titre::after {
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
   body .titre {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 
@@ -178,12 +175,12 @@ footer .containerFooter {
 }
 
 .containerHome {
-  background-image: url(../img/new-york.jpeg);
-  background-size: cover;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(../img/background-image.png);
+  background-size: cover;
 }
 .containerHome .containerMsgHome {
   width: 100%;
@@ -191,11 +188,11 @@ footer .containerFooter {
 }
 .containerHome .containerMsgHome .titleHome {
   padding: 75px;
-  color: white;
+  color: #1e272e;
 }
 .containerHome .containerMsgHome .titleHome h1 {
   font-size: 50px;
-  margin: 25px 0;
+  margin: 10px 0;
   text-transform: uppercase;
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
@@ -216,6 +213,10 @@ footer .containerFooter {
 @media screen and (max-width: 975px) and (min-width: 768px) {
   .containerHome .containerMsgHome .titleHome {
     padding: 50px;
+    font-size: 15px;
+  }
+  .containerHome .containerMsgHome .titleHome h1 {
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
@@ -225,7 +226,7 @@ footer .containerFooter {
 }
 @media screen and (max-width: 975px) and (min-width: 768px) {
   .containerHome .containerMsgHome {
-    height: 20vh;
+    height: 25vh;
   }
 }
 .containerHome .containerCarousel {
@@ -305,8 +306,8 @@ footer .containerFooter {
 }
 @media screen and (max-width: 975px) and (min-width: 768px) {
   .containerHome .containerCarousel {
-    width: 600px;
-    height: 250px;
+    width: 80%;
+    height: 400px;
   }
   .containerHome .containerCarousel .titleSlide {
     height: 25px;
@@ -315,23 +316,23 @@ footer .containerFooter {
     font-size: 15px;
   }
   .containerHome .containerCarousel .slider {
-    width: 525px;
-    height: 190px;
+    width: 575px;
+    height: 300px;
   }
   .containerHome .containerCarousel .slider .slides {
     width: calc(235px * 5);
-    animation: glisse 5s cubic-bezier(0, 0, 1, 1) infinite;
+    animation: glisse 15s cubic-bezier(0, 0, 1, 1) infinite;
   }
   .containerHome .containerCarousel .slider .slides .slide > img {
-    width: 235px;
-    height: 225px;
+    width: 375px;
+    height: 300px;
   }
   @keyframes glisse {
     0% {
       transform: translateX(0px);
     }
     50% {
-      transform: translateX(-210px);
+      transform: translateX(-575px);
     }
     100% {
       transform: translateX(0px);
@@ -339,11 +340,6 @@ footer .containerFooter {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 350px) {
-  .containerHome {
-    height: auto;
-  }
-}
 section {
   width: 100%;
 }
@@ -390,6 +386,11 @@ section .containerCard .card .showProperty > a {
 }
 section .containerCard .card .showProperty > a:hover {
   background-color: #ff5252;
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  section .containerCard .card {
+    margin-left: 0;
+  }
 }
 
 .back {
@@ -472,7 +473,7 @@ section .containerCard .card .showProperty > a:hover {
   .containerShow #b2 {
     font-size: 10px;
     padding: 10px;
-    margin-left: 0px;
+    margin: 10px 0px;
   }
 }
 
@@ -520,7 +521,7 @@ section .containerCard .card .showProperty > a:hover {
 
 .create {
   position: relative;
-  color: white;
+  color: #ff5252;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -531,7 +532,7 @@ section .containerCard .card .showProperty > a:hover {
   text-transform: uppercase;
   text-decoration: none;
   margin: 25px auto;
-  border: 2px solid white;
+  border: 2px solid #ff5252;
   overflow: hidden;
   transition: color 0.8s ease;
 }
@@ -566,14 +567,11 @@ section .containerCard .card .showProperty > a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 77%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
   margin-bottom: 20px;
-}
-.containerUser h3 {
-  margin-bottom: 30px;
 }
 .containerUser .containerInfoProfil {
   width: 430px;
@@ -584,7 +582,19 @@ section .containerCard .card .showProperty > a:hover {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  box-shadow: 1px 1px 25px gray;
+}
+.containerUser .containerInfoProfil .contentTitle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerUser .containerInfoProfil .contentTitle > h3 {
+    font-size: 15px;
+    margin: 15px 0px 0px 20px;
+  }
 }
 .containerUser .containerInfoProfil .titleIdentity {
   background-color: #1e272e;
@@ -613,9 +623,14 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerUser .containerInfoProfil a {
   padding: 15px;
-  background: #ff5252;
+  background: white;
   text-align: center;
   text-decoration: none;
+  color: #ff5252;
+  border: 2px solid #ff5252;
+}
+.containerUser .containerInfoProfil a:hover {
+  background: #ff5252;
   color: white;
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
@@ -625,24 +640,22 @@ section .containerCard .card .showProperty > a:hover {
   }
 }
 .containerUser .containerCardUser {
-  width: 760px;
+  width: 1130px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  background: white;
+  justify-content: center;
 }
 .containerUser .containerCardUser .contentTitle {
   width: 100%;
-  height: auto;
   margin: 15px 0px 0px 20px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 .containerUser .containerCardUser .cardUser {
   width: 350px;
   height: 515px;
-  margin-left: 20px;
-  margin-bottom: 40px;
+  margin: 0 10px 10px;
   padding: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px grey;
@@ -722,11 +735,12 @@ section .containerCard .card .showProperty > a:hover {
 }
 @media screen and (max-width: 768px) and (min-width: 350px) {
   .containerUser .containerCardUser {
-    width: 350px;
+    width: 430px;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 15px;
-    margin-left: 0px;
+    margin-right: 12px;
+    margin-left: 12px;
   }
   .containerUser .containerCardUser .contentTitle > h3 {
     font-size: 15px;
@@ -734,19 +748,20 @@ section .containerCard .card .showProperty > a:hover {
   .containerUser .containerCardUser .cardUser {
     margin-left: 0;
     margin-bottom: 10px;
+    margin: 0 10px 15px;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 350px) {
   .containerUser {
     width: 100%;
-    margin-top: 25px;
+    margin-top: 15px;
   }
   .containerUser .containerInfoProfil {
     margin-bottom: 15px;
-    margin-right: 12px;
-    margin-left: 12px;
-    padding: 6px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 0 30px;
     height: 550px;
   }
 }
@@ -759,7 +774,6 @@ section .containerCard .card .showProperty > a:hover {
   padding-top: 50px;
   background-color: white;
   display: flex;
-  box-shadow: 1px 1px 25px grey;
 }
 .containerCreate form {
   width: 75%;
@@ -783,6 +797,16 @@ section .containerCard .card .showProperty > a:hover {
 }
 .containerCreate form .formCreate .formWidget .formErrors {
   color: #ff5252;
+  background-color: #F8D7DA;
+  border-radius: 10px;
+}
+.containerCreate form .formCreate .formWidget .formErrors ul {
+  padding: 10px;
+}
+.containerCreate form .formCreate .formWidget .formErrors ul li {
+  list-style-type: none;
+  font-size: 15px;
+  font-style: italic;
 }
 .containerCreate form .formCreate .formWidget input {
   width: 100%;
@@ -810,7 +834,7 @@ section .containerCard .card .showProperty > a:hover {
   height: 35px;
 }
 .containerCreate form .formCreate .formWidget #property_imageFile {
-  height: 23px;
+  height: 18px;
 }
 .containerCreate form .formCreate .containerSelect {
   width: 100%;
@@ -820,14 +844,18 @@ section .containerCard .card .showProperty > a:hover {
 .containerCreate form .formCreate .containerSelect .formTitle {
   height: 30px;
 }
-@media screen and (max-width: 1000px) and (min-width: 800px) {
+@media screen and (max-width: 1000px) and (min-width: 768px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 800px) and (min-width: 350px) {
+@media screen and (max-width: 768px) and (min-width: 350px) {
   .containerCreate form .formCreate .formTitle {
     font-size: 15px;
+    width: 90%;
+  }
+  .containerCreate form .formCreate .formWidget {
+    width: 90%;
   }
 }
 .containerCreate form .btn-create {
@@ -845,6 +873,66 @@ section .containerCard .card .showProperty > a:hover {
   background: #ff5252;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .containerCreate {
+    width: 90vw;
+    padding-top: 0px;
+  }
+  .containerCreate form {
+    width: 100%;
+  }
+  .containerCreate form .formCreate > .formTitle {
+    width: 90%;
+  }
+  .containerCreate form .formCreate > .formWidget {
+    width: 90%;
+  }
+  .containerCreate form .containerSelect {
+    width: 100%;
+  }
+  .containerCreate form .containerSelect .formTitle {
+    width: 90%;
+  }
+  .containerCreate form .containerSelect .formWidget {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .containerCreate {
+    width: 90vw;
+    padding-top: 0px;
+  }
+  .containerCreate form {
+    width: 100%;
+  }
+  .containerCreate form .formCreate > .formTitle {
+    width: 90%;
+  }
+  .containerCreate form .formCreate > .formWidget {
+    width: 90%;
+  }
+  .containerCreate form .containerSelect {
+    width: 100%;
+  }
+  .containerCreate form .containerSelect .formTitle {
+    width: 90%;
+  }
+  .containerCreate form .containerSelect .formWidget {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 350px) {
+  .containerCreate {
+    width: 90vw;
+    padding-top: 0px;
+  }
+  .containerCreate form {
+    width: 100%;
+  }
+  .containerCreate form .formCreate > .formWidget {
+    width: 90%;
+  }
+}
 .containerLogin {
   width: 75%;
   margin-left: auto;

@@ -8,7 +8,7 @@
 }
 .create{
     position: relative;
-    color: white;
+    color: $redlight;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
     text-transform: uppercase;
     text-decoration: none;
     margin: 25px auto;
-    border: 2px solid white;
+    border: 2px solid $redlight;
     overflow: hidden;
     transition: color 0.8s ease;
     &:hover{
@@ -53,14 +53,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 77%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
     margin-bottom: 20px;
-    h3{
-        margin-bottom: 30px;
-    }
     .containerInfoProfil{
         width: 430px;
         height: 650px;
@@ -70,7 +67,19 @@
         padding: 15px;
         display: flex;
         flex-direction: column;
-        background-color: white;
+        box-shadow: 1px 1px 25px gray;
+        .contentTitle{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }    
+        @media screen and (max-width: 768px) and (min-width: 350px){
+            .contentTitle > h3{
+                font-size: 15px;
+                            margin: 15px 0px 0px 20px;
+            }
+        }
         .titleIdentity{
             background-color: $darkblue;
             color: white;
@@ -98,10 +107,15 @@
         }
         a{
             padding: 15px;
-            background: $redlight;
+            background: white;
             text-align: center;
             text-decoration: none;
-            color: white;
+            color: $redlight;
+            border: 2px solid $redlight;
+            &:hover{
+                background: $redlight;
+                color: white;
+            }
         }
     }
     @media screen and (max-width: 768px) and (min-width: 350px){
@@ -111,27 +125,26 @@
         }
     }
     .containerCardUser{
-        width: 760px;
+        width: 1130px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        background: white;
+        justify-content: center;
+        // box-shadow: 1px 1px 25px gray;
         .contentTitle{
             width: 100%;
-            height: auto;
             margin: 15px 0px 0px 20px;
             display: flex;
             flex-direction: column;
+            margin-bottom: 25px;
         }
         .cardUser{
             width: 350px;
             height: 515px;
-            margin-left: 20px;
-            margin-bottom: 40px;
+            margin: 0 10px 10px;
             padding: 20px;
             background-color: white;
             box-shadow: 1px 1px 10px grey;
-            font-family: 'roboto';
+            font-family: "roboto";
             .imgUser{
                 width: 100%;
                 height: 250px;
@@ -208,17 +221,19 @@
     }
     @media screen and (max-width: 768px) and (min-width: 350px){
         .containerCardUser{
-            width: 350px;
+            width: 430px;
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 15px;
-            margin-left: 0px;
+            margin-right: 12px;
+            margin-left: 12px;
             .contentTitle > h3{
                 font-size: 15px;
             }
             .cardUser{
                 margin-left: 0;
                 margin-bottom: 10px;
+                margin: 0 10px 15px;
             }
         }
     }
@@ -226,12 +241,12 @@
 @media screen and (max-width: 768px) and (min-width: 350px){
     .containerUser{
         width: 100%;
-        margin-top: 25px;
+        margin-top: 15px;
         .containerInfoProfil{
             margin-bottom: 15px;
-            margin-right: 12px;
-            margin-left: 12px;
-            padding: 6px;
+            margin-right: 5px;
+            margin-left: 5px;
+            padding: 0 30px;
             height: 550px;
         }
     }
