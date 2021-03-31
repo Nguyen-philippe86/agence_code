@@ -1,18 +1,18 @@
 .containerLogin{
-    width: 75%;
+    width: 60%;
+    height: 45vh;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 100px;
-    background-image: url(../img/background-image2.png);
-    background-size: cover;
-    background-attachment: fixed;
+    background-image: url(../img/login3.jpeg);
+    background-size: 60%;
+    box-shadow: 1px 1px 25px grey;
     .formLogin{
-        width: 500px;
-        padding: 40px;
+        width: 40%;
+        padding: 130px 0;
         background-color: white;
-        box-shadow: 1px 1px 25px grey;
         text-align: center;
         input[type = "text"], input[type = "password"]{
             border: 0;
@@ -37,12 +37,12 @@
             display: block;
             margin: 20px auto;
             text-align: center;
-            border: 2px solid $darkblue;
+            border: 2px solid $redlight;
             padding: 15px 40px;
             outline: none;
             border-radius: 5px;
             transition: 0.25s;
-            color: $darkblue;
+            color: $redlight;
             cursor: pointer;
             &:hover{
                 background: $darkblue;
@@ -52,9 +52,54 @@
         }
     }      
 }
+@media screen and (max-width: 1670px) and (min-width: 1200px){
+    .containerLogin{
+        width: 80%;
+        background-size: 60%;
+        .formLogin{
+            width: 50%;
+            input[type = "text"], input[type = "password"]{
+                width: 300px;
+                &:focus{
+                    width: 350px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) and (min-width: 950px){
+    .containerLogin{
+        width: 80%;
+        .formLogin{
+            width: 50%;
+            input[type = "text"], input[type = "password"]{
+                width: 250px;
+                &:focus{
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 950px) and (min-width: 550px){
+    .containerLogin{
+        width: 80%;
+        height: 45vh;
+        .formLogin{
+            width: 50%;
+            input[type = "text"], input[type = "password"]{
+                width: 215px;
+                &:focus{
+                    width: 215px;
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 550px) and (min-width: 350px){
     .containerLogin{
         margin-top: 100px;
+        height: 21vh;
         .formLogin{
             width: 400px;
             padding: 0px;

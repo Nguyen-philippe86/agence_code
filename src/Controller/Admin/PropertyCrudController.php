@@ -12,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\NumericFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 
 class PropertyCrudController extends AbstractCrudController
@@ -24,10 +26,10 @@ class PropertyCrudController extends AbstractCrudController
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
-            ->add(TextFilter::new('category', 'Catégorie'))
-            ->add(TextFilter::new('type', 'Type'))
+            ->add(EntityFilter::new('category', 'Catégorie'))
+            ->add(EntityFilter::new('type', 'Type'))
             ->add(TextFilter::new('city', 'Ville'))
-            ->add(TextFilter::new('price', 'Prix'))
+            ->add(NumericFilter::new('price', 'Prix'))
         ;
     }
 

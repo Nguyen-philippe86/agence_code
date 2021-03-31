@@ -67,6 +67,9 @@
         flex-direction: column;
         background: white;
         box-shadow: 1px 1px 20px black;
+        border: 3px solid blue;
+        border-image: linear-gradient(45deg, #8e0e00, #e76464, #8e0e00);
+        border-image-slice: 1;
         .titleSlide{
             height: 50px;
             align-items: center;
