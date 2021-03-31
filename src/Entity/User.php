@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     /**
-     * @Assert\Length(min=5, minMessage="Plus de 4 caractères")
+     * @Assert\Length(min=5, minMessage="Plus de 5 caractères")
      * @Assert\EqualTo(propertyPath="password", message="Vos mots de passe ne correspondent pas") // configurer le hashage des mdp dans confi->packages->security.yaml
      */
     private $confirmPassword;
@@ -48,7 +48,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=5, minMessage="Plus de 4 caractères")
+     * @Assert\Length(min=5, minMessage="Plus de 5 caractères")
      */
     private $password;
 

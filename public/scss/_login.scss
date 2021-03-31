@@ -5,6 +5,9 @@
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    background-image: url(../img/background-image2.png);
+    background-size: cover;
+    background-attachment: fixed;
     .formLogin{
         width: 500px;
         padding: 40px;

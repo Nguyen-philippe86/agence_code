@@ -20,6 +20,7 @@ $(document).ready(function(){
     });
 });
 
+
 /* Menu Burger
 HTML:
 <div id="clickme">Click here</div>

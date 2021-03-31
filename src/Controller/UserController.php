@@ -59,29 +59,28 @@ class UserController extends AbstractController
      * @Route("/user/property/{id}", name="user_edit", methods="GET|POST")
      */
     public function createAndEdit(Property $property = null, Request $request, EntityManagerInterface $entityManager): Response
-    // On passe en param REQUEST = la requête http (les données quel contient), les infos du formulaire envoyer par la request
     {
         if (!$property) { // On vérifie si ces un ajout ou une modification
             $property = new Property();
         }
         $form = $this->createForm(PropertyType::class, $property);
-        // Créer une formulaire qui est lié a PopertyType, Si y a modification affiche le formulaire de l'id correspondant
+
         $form->handleRequest($request); // Analyse les infos de la request si le form a été soumis
-        if ($form->isSubmitted() && $form->isValid()) {// Si le formulaire est remplie et valide et soumis
+        if ($form->isSubmitted() && $form->isValid()) {
             $property->setCreatedAt(new \DateTime()); // On donne une info supplémentaire (sa date de création) au formulaire
             $modif = null !== $property->getId(); // Si dans l"annonce, il y a déjà un ID, alors sa sera une modif
-            $user = $this->security->getUser(); // On récupère donc l'utilisateur
+            $user = $this->security->getUser();
             $property->setAuthor($user); // On donne une info supplémentaire (son auteur) au formulaire
-            $entityManager->persist($property); // On fait persité l'annonce
-            $entityManager->flush(); // Si tout est OK on balance la requête
+            $entityManager->persist($property);
+            $entityManager->flush();
             $this->addFlash('success', ($modif) ? 'La modification a été effectué' : "L'ajout a été effectué");
-            // On renvoie un message de succès cela le mode du formulaire, ajout ou modif
+
             return $this->redirectToRoute('user'); // Redirige vers la page "annonce"
         }
 
-        return $this->render('user/create.html.twig', [// On retourne une réponse / l'affichage
+        return $this->render('user/create.html.twig', [
             'property' => $property,
-            'form' => $form->createView(), // On lui passe le résultat de la fonction createView de ce formulaire
+            'form' => $form->createView(),
             'isModification' => null !== $property->getid(),
             // Si isModification est = null, alors on sera sur modification, sinon l'inverse
         ]);

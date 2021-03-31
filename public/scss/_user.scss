@@ -19,7 +19,7 @@
     text-transform: uppercase;
     text-decoration: none;
     margin: 25px auto;
-    border: 2px solid $redlight;
+    border: 4px solid $redlight;
     overflow: hidden;
     transition: color 0.8s ease;
     &:hover{
@@ -68,6 +68,9 @@
         display: flex;
         flex-direction: column;
         box-shadow: 1px 1px 25px gray;
+        border: 5px solid blue;
+        border-image: linear-gradient(to right, #8e0e00, #e76464, #8e0e00);
+        border-image-slice: 1;
         .contentTitle{
             width: 100%;
             display: flex;
@@ -111,7 +114,7 @@
             text-align: center;
             text-decoration: none;
             color: $redlight;
-            border: 2px solid $redlight;
+            border: 4px solid $redlight;
             &:hover{
                 background: $redlight;
                 color: white;
@@ -129,7 +132,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        // box-shadow: 1px 1px 25px gray;
         .contentTitle{
             width: 100%;
             margin: 15px 0px 0px 20px;
@@ -140,11 +142,14 @@
         .cardUser{
             width: 350px;
             height: 515px;
-            margin: 0 10px 10px;
+            margin: 0 10px 20px;
             padding: 20px;
             background-color: white;
             box-shadow: 1px 1px 10px grey;
             font-family: "roboto";
+            border: 5px solid blue;
+            border-image: linear-gradient(to right, #2c3e50, #3498db, #2c3e50);
+            border-image-slice: 1;
             .imgUser{
                 width: 100%;
                 height: 250px;
@@ -166,8 +171,10 @@
                 justify-content: space-between;
                 margin: 15px 0px 0px 0px;
                 .showUser{
-                    padding: 10px 34px;
+                    padding: 10px 28px;
                     background-color: $darkblue;
+                    display: flex;
+                    align-items: center;
                     > a{
                         text-decoration: none;
                         color: white;
@@ -180,6 +187,8 @@
                 .editUser{
                     padding: 10px 34px;
                     background-color: $darkblue;
+                    display: flex;
+                    align-items: center;
                     > a{
                         color: white;
                     }
@@ -192,7 +201,7 @@
                     padding: 12px 34px;
                     background-color: white;
                     color: $redlight;
-                    border: 2px solid $redlight;
+                    border: 3px solid $redlight;
                     cursor: pointer;
                     &:hover{
                         background-color: $redlight;
@@ -247,7 +256,7 @@
             margin-right: 5px;
             margin-left: 5px;
             padding: 0 30px;
-            height: 550px;
+            height: 615px;
         }
     }
 }

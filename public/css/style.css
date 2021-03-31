@@ -114,13 +114,6 @@ body {
   font-family: "roboto", arial, sans-serif;
   width: 100%;
   height: 100vh;
-  background-color: white;
-}
-body .filter {
-  filter: blur(5px);
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
 }
 body .titre {
   font-size: 50px;
@@ -242,7 +235,7 @@ footer .containerFooter {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background: white;
   box-shadow: 1px 1px 20px black;
 }
 .containerHome .containerCarousel .titleSlide {
@@ -359,9 +352,11 @@ section .containerCard .card {
   height: 550px;
   margin-left: 15px;
   margin-top: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 20px;
-  background-color: white;
+  border: 5px solid blue;
+  border-image: linear-gradient(to right, #2c3e50, #3498db, #2c3e50);
+  border-image-slice: 1;
   box-shadow: 1px 1px 10px grey;
   font-family: "roboto";
   position: relative;
@@ -414,7 +409,7 @@ section .containerCard .card .showProperty > a:hover {
 }
 
 .containerShow {
-  width: 75vw;
+  width: 40vw;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
@@ -422,6 +417,9 @@ section .containerCard .card .showProperty > a:hover {
   color: #1e272e;
   background-color: white;
   box-shadow: 1px 1px 30px grey;
+  border: 5px solid blue;
+  border-image: linear-gradient(to right, #2c3e50, #3498db, #2c3e50);
+  border-image-slice: 1;
 }
 .containerShow .containerPicture {
   width: 100%;
@@ -537,7 +535,7 @@ section .containerCard .card .showProperty > a:hover {
   text-transform: uppercase;
   text-decoration: none;
   margin: 25px auto;
-  border: 2px solid #ff5252;
+  border: 4px solid #ff5252;
   overflow: hidden;
   transition: color 0.8s ease;
 }
@@ -588,6 +586,9 @@ section .containerCard .card .showProperty > a:hover {
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 25px gray;
+  border: 5px solid blue;
+  border-image: linear-gradient(to right, #8e0e00, #e76464, #8e0e00);
+  border-image-slice: 1;
 }
 .containerUser .containerInfoProfil .contentTitle {
   width: 100%;
@@ -632,7 +633,7 @@ section .containerCard .card .showProperty > a:hover {
   text-align: center;
   text-decoration: none;
   color: #ff5252;
-  border: 2px solid #ff5252;
+  border: 4px solid #ff5252;
 }
 .containerUser .containerInfoProfil a:hover {
   background: #ff5252;
@@ -660,11 +661,14 @@ section .containerCard .card .showProperty > a:hover {
 .containerUser .containerCardUser .cardUser {
   width: 350px;
   height: 515px;
-  margin: 0 10px 10px;
+  margin: 0 10px 20px;
   padding: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px grey;
   font-family: "roboto";
+  border: 5px solid blue;
+  border-image: linear-gradient(to right, #2c3e50, #3498db, #2c3e50);
+  border-image-slice: 1;
 }
 .containerUser .containerCardUser .cardUser .imgUser {
   width: 100%;
@@ -688,8 +692,10 @@ section .containerCard .card .showProperty > a:hover {
   margin: 15px 0px 0px 0px;
 }
 .containerUser .containerCardUser .cardUser .actionUser .showUser {
-  padding: 10px 34px;
+  padding: 10px 28px;
   background-color: #1e272e;
+  display: flex;
+  align-items: center;
 }
 .containerUser .containerCardUser .cardUser .actionUser .showUser > a {
   text-decoration: none;
@@ -702,6 +708,8 @@ section .containerCard .card .showProperty > a:hover {
 .containerUser .containerCardUser .cardUser .actionUser .editUser {
   padding: 10px 34px;
   background-color: #1e272e;
+  display: flex;
+  align-items: center;
 }
 .containerUser .containerCardUser .cardUser .actionUser .editUser > a {
   color: white;
@@ -714,7 +722,7 @@ section .containerCard .card .showProperty > a:hover {
   padding: 12px 34px;
   background-color: white;
   color: #ff5252;
-  border: 2px solid #ff5252;
+  border: 3px solid #ff5252;
   cursor: pointer;
 }
 .containerUser .containerCardUser .cardUser .actionUser .btn-delete:hover {
@@ -767,7 +775,7 @@ section .containerCard .card .showProperty > a:hover {
     margin-right: 5px;
     margin-left: 5px;
     padding: 0 30px;
-    height: 550px;
+    height: 615px;
   }
 }
 .containerCreate {
@@ -945,6 +953,9 @@ section .containerCard .card .showProperty > a:hover {
   display: flex;
   justify-content: center;
   margin-top: 100px;
+  background-image: url(../img/background-image2.png);
+  background-size: cover;
+  background-attachment: fixed;
 }
 .containerLogin .formLogin {
   width: 500px;

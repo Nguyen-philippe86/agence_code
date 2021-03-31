@@ -13,7 +13,7 @@
     }
 }
 .containerShow{
-    width: 75vw;
+    width: 40vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
@@ -21,6 +21,9 @@
     color: $darkblue;
     background-color: white;
     box-shadow: 1px 1px 30px grey;
+    border: 5px solid blue;
+    border-image: linear-gradient(to right, #2c3e50, #3498db, #2c3e50);
+    border-image-slice: 1;
     .containerPicture{
         width: 100%;
         .pictureShow{
@@ -77,11 +80,6 @@
     }
     
 }
-// @media (min-width: 500px) and (max-width:1080px){
-//     .containerShow{
-//         margin-top: 50px;
-//     }
-// }
 .showContact{
     display: none;
     margin-left: 30px;

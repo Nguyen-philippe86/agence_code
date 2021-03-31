@@ -13,9 +13,8 @@ class PropertyController extends AbstractController
     /**
      * @Route("/property", name="property")
      */
-    public function index(PropertyRepository $repo): Response // PropertyRepository = Injection de dépendance
+    public function index(PropertyRepository $repo): Response
     {
-        // $property = $repo->findAll();
         $property = $repo->findBy([], ['id' => 'DESC']);
 
         return $this->render('property/property.html.twig', [
